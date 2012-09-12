@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <CheckBox
+        android:id="@+id/checkMusica"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="181dp"
+        android:layout_marginTop="83dp"
+        android:text="Musica"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:onClick="acao" />
+
+    <CheckBox
+        android:id="@+id/checkSom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/checkMusica"
+        android:layout_below="@+id/checkMusica"
+        android:layout_marginTop="28dp"
+        android:text="Som"
+        android:textAppearance="?android:attr/textAppearanceLarge" 
+        android:onClick="acao"/>
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/checkSom"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="14dp"
+        android:src="@drawable/bot_back" 
+        android:clickable="true"
+        android:onClick="voltar"/>
+
+</RelativeLayout>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/close_box" />
+
+        <ImageButton
+            android:id="@+id/imageButton1"
+            android:layout_width="150px"
+            android:layout_height="55px"
+            android:layout_centerVertical="true"
+            android:onClick="botaoInicio"
+            android:src="@drawable/botao_inicio" />
+
+        <ImageButton
+            android:id="@+id/imageButton4"
+            android:layout_width="150px"
+            android:layout_height="55px"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="42dp"
+            android:layout_marginRight="36dp"
+            android:onClick="botaoSobre"
+            android:src="@drawable/botao_sobre" />
+
+        <ImageButton
+            android:id="@+id/imageButton3"
+            android:layout_width="185px"
+            android:layout_height="55px"
+            android:layout_alignLeft="@+id/imageButton1"
+            android:layout_alignTop="@+id/imageButton4"
+            android:onClick="botaoOptions"
+            android:src="@drawable/botao_options" />
+
+        <ImageButton
+            android:id="@+id/imageButton2"
+            android:layout_width="150px"
+            android:layout_height="55px"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/imageButton1"
+            android:layout_marginRight="87dp"
+            android:onClick="botaoScore"
+            android:src="@drawable/botao_score" />
+
+    </RelativeLayout>
+
+</LinearLayout>

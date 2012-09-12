@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/background"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/checkedTextView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="# " />
+
+        <TextView
+            android:id="@+id/jogadorText1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Large Text"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/pontosText1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Large Text"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/checkedTextView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="# " />
+
+        <TextView
+            android:id="@+id/jogadorText2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Large Text"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/pontosText2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Large Text"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/checkedTextView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="# " />
+
+        <TextView
+            android:id="@+id/jogadorText3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Large Text"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/pontosText3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Large Text"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+    </LinearLayout>
+
+    <AbsoluteLayout
+        android:id="@+id/relativeLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.92" >
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_x="164dp"
+            android:layout_y="176dp"
+            android:clickable="true"
+            android:onClick="acaoDado"
+            android:src="@drawable/dado_face2" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_x="280dp"
+            android:layout_y="174dp"
+            android:clickable="true"
+            android:onClick="acaoDado"
+            android:src="@drawable/dado_face5" />
+
+        <ImageView
+            android:id="@+id/imageViewPlaca_1"
+            android:layout_width="wrap_content"
+            android:layout_height="86dp"
+            android:layout_x="14dp"
+            android:layout_y="25dp"
+            android:onClick="abaixarPlaca"
+            android:src="@drawable/placa_1"
+            android:tag="1" />
+
+        <ImageView
+            android:id="@+id/imageViewPlaca_2"
+            android:layout_width="wrap_content"
+            android:layout_height="86dp"
+            android:layout_x="57dp"
+            android:layout_y="25dp"
+            android:onClick="abaixarPlaca"
+            android:src="@drawable/placa_2" />
+
+        <ImageView
+            android:id="@+id/imageViewPlaca_3"
+            android:layout_width="wrap_content"
+            android:layout_height="86dp"
+            android:layout_x="103dp"
+            android:layout_y="25dp"
+            android:onClick="abaixarPlaca"
+            android:src="@drawable/placa_3" />
+
+        <ImageView
+            android:id="@+id/imageViewPlaca_4"
+            android:layout_width="wrap_content"
+            android:layout_height="86dp"
+            android:layout_x="147dp"
+            android:layout_y="25dp"
+            android:onClick="abaixarPlaca"
+            android:src="@drawable/placa_4" />
+
+        <ImageView
+            android:id="@+id/imageViewPlaca_5"
+            android:layout_width="wrap_content"
+            android:layout_height="86dp"
+            android:layout_x="191dp"
+            android:layout_y="25dp"
+            android:onClick="abaixarPlaca"
+            android:src="@drawable/placa_5" />
+
+        <ImageView
+            android:id="@+id/imageViewPlaca_6"
+            android:layout_width="wrap_content"
+            android:layout_height="86dp"
+            android:layout_x="234dp"
+            android:layout_y="25dp"
+            android:onClick="abaixarPlaca"
+            android:src="@drawable/placa_6" />
+
+        <ImageView
+            android:id="@+id/imageViewPlaca_7"
+            android:layout_width="wrap_content"
+            android:layout_height="86dp"
+            android:layout_x="274dp"
+            android:layout_y="25dp"
+            android:onClick="abaixarPlaca"
+            android:src="@drawable/placa_7" />
+
+        <ImageView
+            android:id="@+id/imageViewPlaca_8"
+            android:layout_width="wrap_content"
+            android:layout_height="86dp"
+            android:layout_x="313dp"
+            android:layout_y="25dp"
+            android:onClick="abaixarPlaca"
+            android:src="@drawable/placa_8" />
+
+        <ImageView
+            android:id="@+id/imageViewPlaca_9"
+            android:layout_width="wrap_content"
+            android:layout_height="86dp"
+            android:layout_x="353dp"
+            android:layout_y="25dp"
+            android:onClick="abaixarPlaca"
+            android:src="@drawable/placa_9" />
+
+        <ImageView
+            android:id="@+id/imageViewPD1"
+            android:layout_width="57dp"
+            android:layout_height="66dp"
+            android:layout_x="31dp"
+            android:layout_y="117dp"
+            android:src="@drawable/placa_down"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:id="@+id/imageViewPD2"
+            android:layout_width="57dp"
+            android:layout_height="66dp"
+            android:layout_x="72dp"
+            android:layout_y="113dp"
+            android:src="@drawable/placa_down"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:id="@+id/imageViewPD3"
+            android:layout_width="57dp"
+            android:layout_height="66dp"
+            android:layout_x="118dp"
+            android:layout_y="110dp"
+            android:src="@drawable/placa_down"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:id="@+id/imageViewPD4"
+            android:layout_width="57dp"
+            android:layout_height="66dp"
+            android:layout_x="161dp"
+            android:layout_y="113dp"
+            android:src="@drawable/placa_down"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:id="@+id/imageViewPD5"
+            android:layout_width="57dp"
+            android:layout_height="66dp"
+            android:layout_x="204dp"
+            android:layout_y="109dp"
+            android:src="@drawable/placa_down"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:id="@+id/imageViewPD6"
+            android:layout_width="57dp"
+            android:layout_height="66dp"
+            android:layout_x="247dp"
+            android:layout_y="105dp"
+            android:src="@drawable/placa_down"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:id="@+id/imageViewPD7"
+            android:layout_width="57dp"
+            android:layout_height="66dp"
+            android:layout_x="288dp"
+            android:layout_y="107dp"
+            android:src="@drawable/placa_down"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:id="@+id/imageViewPD8"
+            android:layout_width="58dp"
+            android:layout_height="67dp"
+            android:layout_x="327dp"
+            android:layout_y="107dp"
+            android:src="@drawable/placa_down"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:id="@+id/imageViewPD9"
+            android:layout_width="57dp"
+            android:layout_height="66dp"
+            android:layout_x="366dp"
+            android:layout_y="105dp"
+            android:src="@drawable/placa_down"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="46dp"
+            android:layout_height="68dp"
+            android:layout_x="7dp"
+            android:layout_y="165dp"
+            android:onClick="desistir"
+            android:src="@drawable/bot_desistir" />
+
+        <ImageView
+            android:id="@+id/imageViewDadoLancado1"
+            android:layout_width="69dp"
+            android:layout_height="65dp"
+            android:layout_x="120dp"
+            android:layout_y="172dp"
+            android:src="@drawable/dado_face1" />
+
+        <ImageView
+            android:id="@+id/imageViewDadoLancado2"
+            android:layout_width="69dp"
+            android:layout_height="65dp"
+            android:layout_x="305dp"
+            android:layout_y="172dp"
+            android:src="@drawable/dado_face6" />
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="9dp"
+            android:layout_y="125dp"
+            android:text="Qual a soma das placas?"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:visibility="invisible" />
+
+        <EditText
+            android:id="@+id/campo_pontos_de_vida"
+            android:layout_width="136dp"
+            android:layout_height="wrap_content"
+            android:layout_x="264dp"
+            android:layout_y="125dp"
+            android:inputType="number"
+            android:singleLine="true"
+            android:visibility="invisible" >
+
+            <requestFocus />
+        </EditText>
+
+        <Button
+            android:id="@+id/okSomaPlacas"
+            android:layout_width="45dp"
+            android:layout_height="34dp"
+            android:layout_x="414dp"
+            android:layout_y="125dp"
+            android:onClick="validarCalculoDoUsuario"
+            android:text="OK"
+            android:visibility="invisible" />
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="415dp"
+            android:layout_y="174dp"
+            android:text="Pontos" />
+        <TextView
+            android:id="@+id/rodada"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="414dp"
+            android:layout_y="196dp"
+            android:text=""
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    </AbsoluteLayout>
+
+</LinearLayout>
