@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" 
+    android:background="@drawable/close_box">
+
+    
+    <ImageButton
+        android:id="@+id/imageButton4"
+        android:layout_width="220dp"
+        android:layout_height="75dp"
+        android:layout_x="256dp"
+        android:layout_y="164dp"
+        android:onClick="botaoScore"
+        android:src="@drawable/botao_score" />
+
+	<ImageButton
+	    android:id="@+id/imageButton3"
+	    android:layout_width="220dp"
+	    android:layout_height="75dp"
+	    android:layout_x="6dp"
+	    android:layout_y="246dp"
+	    android:onClick="botaoOptions"
+	    android:src="@drawable/botao_options" />
+
+	<ImageButton
+	    android:id="@+id/imageButton5"
+	    android:layout_width="220dp"
+        android:layout_height="75dp"
+	    android:layout_x="256dp"
+	    android:layout_y="246dp"
+	    android:onClick="botaoSobre"
+	    android:src="@drawable/botao_sobre" />
+
+	<ImageButton
+	    android:id="@+id/imageButton2"
+	    android:layout_width="220dp"
+	    android:layout_height="75dp"
+	    android:layout_x="6dp"
+	    android:layout_y="164dp"
+	    android:onClick="botaoInicio"
+	    android:src="@drawable/botao_inicio" />
+
+</AbsoluteLayout>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    	android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@drawable/bg_historia1">
+        
+
+       
+        
+        
+        <ImageView 
+            android:id="@+id/bot_next"
+        	android:layout_width="75dp"
+       		android:layout_height="35dp"
+        	android:layout_x="400dp"
+        	android:layout_y="276dp"
+        	android:onClick="botaoNext"
+        	android:src="@drawable/bot_next"/>
+        
+         <ImageView
+        	android:id="@+id/bot_back"
+        	android:layout_width="75dp"
+        	android:layout_height="wrap_content"
+        	android:layout_x="40dp"
+        	android:layout_y="268dp"
+        	android:onClick="botaoBack"
+        	android:src="@drawable/bot_back"/>
+
+	      
+	    <ImageView
+        	android:id="@+id/bot_cancelar"
+       		android:layout_width="116dp"
+        	android:layout_height="wrap_content"
+        	android:layout_x="189dp"
+        	android:layout_y="277dp"
+        	android:onClick="botaoCancel"
+        	android:src="@drawable/bot_sair"/>
+	    
+	    <ImageView
+        android:id="@+id/his1"
+        android:layout_width="400dp"
+        android:layout_height="245dp"
+        android:layout_x="60dp"
+        android:layout_y="23dp"
+        android:src="@drawable/historia1" />
+	        
+	     
+</AbsoluteLayout>

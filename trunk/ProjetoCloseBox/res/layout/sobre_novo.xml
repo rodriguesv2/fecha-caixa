@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/bg_sobre" >
+
+    
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="205dp"
+        android:layout_height="wrap_content"
+        android:layout_x="30dp"
+        android:layout_y="65dp"
+        android:onClick="botaoCredito"
+        android:src="@drawable/bot_creditos" />
+    
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="205dp"
+        android:layout_height="wrap_content"
+        android:layout_x="146dp"
+        android:layout_y="151dp"
+        android:onClick="botaoHistoria"
+        android:src="@drawable/bot_historia" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="205dp"
+        android:layout_height="wrap_content"
+        android:layout_x="269dp"
+        android:layout_y="241dp"
+        android:onClick="botaoComoJogar"
+        android:src="@drawable/bot_como_jogar" />
+
+
+
+</AbsoluteLayout>
