@@ -228,8 +228,7 @@ public class Controle{
 	 * @throws Exception Possiveis erros relacionados ao banco de dados
 	 */
 	public Controle(Context context)throws Exception{
-		this.context = context;
-		score = new Score(this.context);
+		score = new Score(context);
 		opcoes = new Opcoes(context);
 	}
 	
@@ -293,7 +292,6 @@ public class Controle{
 	 * @param efeito a flag que sera alterada no banco de dados no campo "FX"; 1 = true, 0 = false.
 	 */
 	public void alterarOpcoes(boolean musica, boolean efeito){
-		opcoes = new Opcoes(context);
 		opcoes.alterar(musica, efeito);
 	}
 	
@@ -302,7 +300,6 @@ public class Controle{
 	 * @return true caso a flag armazenada for 1 ou false caso seja 0.
 	 */
 	public boolean getMusica(){
-		opcoes = new Opcoes(context);
 		return opcoes.getMusica();
 	}
 	
@@ -311,7 +308,6 @@ public class Controle{
 	 * @return true caso a flag armazenada for 1 ou false caso seja 0.
 	 */
 	public boolean getEfeitos(){
-		opcoes = new Opcoes(context);
 		return opcoes.getEfeitos();
 	}
 	

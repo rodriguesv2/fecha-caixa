@@ -24,7 +24,8 @@ public class ComoJogarActivity extends Activity{
 	private ImageView bot_next; // o botao que chama a proxima tela
 	private ImageView bot_back; // o botao que chama a tela anterior
 	private ImageView bot_cancel; // o botao cancelar
-	private int[] listaImagem = {R.drawable.comojogar1,R.drawable.comojogar2,R.drawable.comojogar3,R.drawable.comojogar4}; // Lista de imagens utilizadas
+	private int[] listaImagem = {R.drawable.slide_1,R.drawable.slide_2,R.drawable.slide_3,
+			R.drawable.slide_4, R.drawable.slide_5, R.drawable.slide_6, R.drawable.slide_7}; // Lista de imagens utilizadas
 	private ImageView imagemAtual; // A imagem sendo exibida ao jogador
 	private boolean mBound = false;
 	private MusicaPrincipalService musicaPrincipalService;

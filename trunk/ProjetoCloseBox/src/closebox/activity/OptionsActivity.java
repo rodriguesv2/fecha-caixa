@@ -45,7 +45,7 @@ public class OptionsActivity extends Activity{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.opcoes);
 		try {
-			controle = new Controle(this);
+			controle = new Controle(this.getApplicationContext());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
