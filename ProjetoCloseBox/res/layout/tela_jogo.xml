@@ -104,7 +104,7 @@
             android:layout_y="176dp"
             android:clickable="true"
             android:onClick="acaoDado"
-            android:src="@drawable/dado_face2" />
+            android:src="@drawable/new_dado_face2" />
 
         <ImageView
             android:id="@+id/imageView2"
@@ -114,7 +114,7 @@
             android:layout_y="174dp"
             android:clickable="true"
             android:onClick="acaoDado"
-            android:src="@drawable/dado_face5" />
+            android:src="@drawable/new_dado_face5" />
 
         <ImageView
             android:id="@+id/imageViewPlaca_1"
@@ -294,7 +294,7 @@
             android:layout_height="65dp"
             android:layout_x="120dp"
             android:layout_y="172dp"
-            android:src="@drawable/dado_face1" />
+            android:src="@drawable/new_dado_face1" />
 
         <ImageView
             android:id="@+id/imageViewDadoLancado2"
@@ -302,7 +302,7 @@
             android:layout_height="65dp"
             android:layout_x="305dp"
             android:layout_y="172dp"
-            android:src="@drawable/dado_face6" />
+            android:src="@drawable/new_dado_face6" />
 
         <TextView
             android:id="@+id/textView1"

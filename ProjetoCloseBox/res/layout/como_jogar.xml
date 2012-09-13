@@ -1,43 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent" 
-    android:background="@drawable/bg_como_jogar">
-
+    android:layout_height="fill_parent"
+    android:background="@drawable/bg_como_jogar" >
+
+    <ImageView
+        android:id="@+id/cj1"
+        android:layout_width="430dp"
+        android:layout_height="245dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/slide_1" />
+
     <ImageView
         android:id="@+id/bt_next"
         android:layout_width="78dp"
         android:layout_height="33dp"
-        android:layout_x="400dp"
-        android:layout_y="286dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
         android:onClick="botaoNext"
         android:src="@drawable/bot_next" />
-
-    <ImageView
-        android:id="@+id/bt_back"
-        android:layout_width="75dp"
-        android:layout_height="wrap_content"
-        android:layout_x="4dp"
-        android:layout_y="272dp"
-        android:onClick="botaoBack"
-        android:src="@drawable/bot_back" />
 
     <ImageView
         android:id="@+id/bt_cancelar"
         android:layout_width="115dp"
         android:layout_height="wrap_content"
-        android:layout_x="182dp"
-        android:layout_y="277dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
         android:onClick="botaoCancel"
         android:src="@drawable/bot_sair" />
 
+
     <ImageView
-        android:id="@+id/cj1"
-        android:layout_width="338dp"
-        android:layout_height="249dp"
-        android:layout_x="70dp"
-        android:layout_y="37dp"
-        android:src="@drawable/comojogar1" />
-
-    
-</AbsoluteLayout>
+        android:id="@+id/bt_back"
+        android:layout_width="75dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignTop="@+id/bt_cancelar"
+        android:onClick="botaoBack"
+        android:src="@drawable/bot_back" />
+
+</RelativeLayout>

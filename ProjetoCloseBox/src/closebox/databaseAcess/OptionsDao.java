@@ -29,8 +29,10 @@ public class OptionsDao extends SQLiteOpenHelper{
 	 */
 	public OptionsDao(Context context){
 		super(context, NOME_BANCO, null, 1);
-		onCreate(this.getReadableDatabase());
-	}
+
+		onCreate(this.getWritableDatabase());
+		//bancoDados = getWritableDatabase();
+}
 
 	@Override
 	public void onCreate(SQLiteDatabase db) {
@@ -50,8 +52,8 @@ public class OptionsDao extends SQLiteOpenHelper{
 	 * @return true se houver uma linha.
 	 */
 	public boolean getCount(){
+		bancoDados = getWritableDatabase();
 		boolean existe = false;
-		bancoDados = getReadableDatabase();
 		cursor = bancoDados.rawQuery("select * from "+ TABELA +";", null); //select * from opcoes;
 		if(cursor.getCount()==1){ // obtem a contagem
 			existe = true;
@@ -66,7 +68,7 @@ public class OptionsDao extends SQLiteOpenHelper{
 	 * @return o total de linhas
 	 */
 	public int contaRegistros(){
-		bancoDados = getReadableDatabase();
+		bancoDados = getWritableDatabase();
 		cursor = bancoDados.rawQuery("select * from "+ TABELA +";", null); //select * from opcoes;
 		int total = cursor.getCount();
 		cursor.close();
@@ -80,7 +82,7 @@ public class OptionsDao extends SQLiteOpenHelper{
 	 * o que significa as duas opcoes habilitadas (true).
 	 */
 	public void criarLinhaOpcoes(){
-		bancoDados = getReadableDatabase();
+		bancoDados = getWritableDatabase();
 		ContentValues cv = new ContentValues();
 		cv.put(CAMPO_SOUND, 1);
 		cv.put(CAMPO_FX, 1);
@@ -106,8 +108,7 @@ public class OptionsDao extends SQLiteOpenHelper{
 	 * @param efeito campo FX;  1 = true, 0 = false.
 	 */
 	public void alterarOpcoes(int musica, int efeito){
-		bancoDados = getReadableDatabase();
-		
+		bancoDados = getWritableDatabase();
 		ContentValues cv = new ContentValues();
 		cv.put(CAMPO_SOUND, musica);
 		cv.put(CAMPO_FX, efeito);
@@ -129,7 +130,7 @@ public class OptionsDao extends SQLiteOpenHelper{
 	 * Remove a tabela do banco de dados.
 	 */
 	public void apagarTabela(){
-		bancoDados = getReadableDatabase();
+		bancoDados = getWritableDatabase();
 		bancoDados.execSQL("DROP TABLE IF EXISTS " + TABELA + ";");
 		bancoDados.close();
 	}
@@ -138,11 +139,14 @@ public class OptionsDao extends SQLiteOpenHelper{
 	 * Executa uma query na tabela, buscando o campo "SOUND".
 	 * @return true se a query retornar 1 e false caso retorne 0;
 	 */
+
 	public boolean getMusica(){
-		bancoDados = getReadableDatabase();
+		bancoDados = getWritableDatabase();
 		cursor = bancoDados.rawQuery("select "+ CAMPO_SOUND +" from "+ TABELA, null); //select * from opcoes;
 		cursor.moveToFirst();
 		int resultado = cursor.getInt(cursor.getColumnIndex(CAMPO_SOUND));
+		cursor.close();
+		bancoDados.close();
 		if(resultado == 1) return true;
 		else return false;
 	}
@@ -152,10 +156,12 @@ public class OptionsDao extends SQLiteOpenHelper{
 	 * @return true se a query retornar 1 e false caso retorne 0;
 	 */
 	public boolean getEfeitos(){
-		bancoDados = getReadableDatabase();
+		bancoDados = getWritableDatabase();
 		cursor = bancoDados.rawQuery("select "+ CAMPO_FX +" from "+ TABELA, null); //select * from opcoes;
 		cursor.moveToFirst();
 		int resultado = cursor.getInt(cursor.getColumnIndex(CAMPO_FX));
+		cursor.close();
+		bancoDados.close();
 		if(resultado == 1) return true;
 		else return false;
 	}

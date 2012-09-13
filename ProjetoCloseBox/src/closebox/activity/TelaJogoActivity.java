@@ -78,8 +78,8 @@ public class TelaJogoActivity extends Activity{
 	private boolean mBound = false;
 	private MusicaPrincipalService musicaPrincipalService;
 	
-	private int[]listaDados = {R.drawable.dado_face1,R.drawable.dado_face2,R.drawable.dado_face3,
-			R.drawable.dado_face4,R.drawable.dado_face5,R.drawable.dado_face6};
+	private int[]listaDados = {R.drawable.new_dado_face1,R.drawable.new_dado_face2,R.drawable.new_dado_face3,
+			R.drawable.new_dado_face4,R.drawable.new_dado_face5,R.drawable.new_dado_face6};
 	
 	private int[] arrayImageViewPlaca = {R.id.imageViewPlaca_1,R.id.imageViewPlaca_2,R.id.imageViewPlaca_3,
 			R.id.imageViewPlaca_4,R.id.imageViewPlaca_5,R.id.imageViewPlaca_6,

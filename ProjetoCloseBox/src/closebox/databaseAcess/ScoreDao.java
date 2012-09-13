@@ -29,14 +29,14 @@ public class ScoreDao extends SQLiteOpenHelper{
 	 */
 	public ScoreDao(Context context){
 		super(context, NOME_BANCO, null, 1);
-		onCreate(this.getReadableDatabase());
+		onCreate(this.getWritableDatabase());
 	}
 
 	/**
 	 * Metodo responsavel por preencher a ListView que apresenta a lista dos jogadores gravados no Banco de Dados
 	 */
 	public ArrayList<Jogador> obterLista() throws Exception{
-		bancoDados = getReadableDatabase();
+		bancoDados = getWritableDatabase();
 		ArrayList<Jogador> listaJogadores = new ArrayList<Jogador>();; //lista para receber os dados, se existirem no Banco de Dados
 		Jogador jogador;
 		try {
@@ -69,7 +69,7 @@ public class ScoreDao extends SQLiteOpenHelper{
 	 * @return a quantidade de registros no BD, caso ocorra erros retorna 10.(para que seja utilizado o critério de maior pontuação)
 	 */
 	public int numRegistros() throws Exception{
-		bancoDados = getReadableDatabase();
+		bancoDados = getWritableDatabase();
 		int registros = 0;
 		try {
 			Cursor c = bancoDados.rawQuery("select * from "+ TABELA +";", null); //select * from jogador;
@@ -87,7 +87,7 @@ public class ScoreDao extends SQLiteOpenHelper{
 	 * @return a menor pontuação
 	 */
 	public int getMenorPonto()throws Exception{
-		bancoDados = getReadableDatabase();
+		bancoDados = getWritableDatabase();
 		int menor = 0;
 		try { 
 			cursor = bancoDados.rawQuery("select min("+ CAMPO_RODADAS +") from jogador;", null); //select min(rodadas) from jogador
@@ -107,7 +107,7 @@ public class ScoreDao extends SQLiteOpenHelper{
 	 * @param valorPontos os pontos do Jogador
 	 */
 	public void gravarJogador(String nome, int pontuacao)throws Exception{
-		bancoDados = getReadableDatabase();
+		bancoDados = getWritableDatabase();
 		
 		ContentValues cv = new ContentValues();
 		cv.put(CAMPO_NOME, nome);
@@ -122,7 +122,7 @@ public class ScoreDao extends SQLiteOpenHelper{
 	 * @throws Exception
 	 */
 	public void apagarRegistro(int chave)throws Exception{
-		bancoDados = getReadableDatabase();
+		bancoDados = getWritableDatabase();
 		try{
 			bancoDados.execSQL("delete from "+TABELA+" where "+ID_TABELA+" = "+chave+";");
 		}catch (Exception erro) {
@@ -135,7 +135,7 @@ public class ScoreDao extends SQLiteOpenHelper{
 	 * Metodo que busca o valor mais baixo do campo rodadas(integer) e o apaga caso haja mais de dez registros no banco de dados. 
 	 */
 	public void apagarMaisQueDez() throws Exception{
-		bancoDados = getReadableDatabase();
+		bancoDados = getWritableDatabase();
 		while(numRegistros()>10){//atende a condição de só apagar caso haja mais de dez registros no banco de dados.
 			try {
 				int menorValor; //variavel que será usada para armazenar o retorno da busca
@@ -166,7 +166,7 @@ public class ScoreDao extends SQLiteOpenHelper{
 	 * @throws Exception Possiveis erros ao acessar o banco de dados
 	 */
 	public int obtemChaveMenorPontuacao()throws Exception{
-		bancoDados = getReadableDatabase();
+		bancoDados = getWritableDatabase();
 		int indiceMenorPontuacao = 0;
 		try {
 			/**
@@ -204,4 +204,6 @@ public class ScoreDao extends SQLiteOpenHelper{
 		
 	}
 }
+
+
 
