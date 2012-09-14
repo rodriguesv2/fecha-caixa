@@ -29,10 +29,10 @@ public class SoundManager {
 	public static final int BOTAO_NAVEGACAO = 0;
 	public static final int PLACA_ABAIXANDO = 1;
 	public static final int PLACA_LEVANTANDO = 5;
-	public static final int PLACAS_ERRADAS = 3;
+	public static final int PLACAS_ERRADAS = 6;
 	public static final int CALCULO_ERRADO = 4;
 	public static final int DADO_GIRANDO = 2;
-	public static final int DADO_JOGANDO = 6;
+	public static final int DADO_JOGANDO = 3;
 	public static final int DIALOGO_ERRO = 7;
 	public static final int ABAIXOU_TODAS_AS_PLACAS = 8;
 	public Controle controle;
@@ -65,6 +65,7 @@ public class SoundManager {
 		addSound(R.raw.botao_4);
 		addSound(R.raw.placa_abaixando);
 		addSound(R.raw.dado_girando);
+		addSound(R.raw.dice_2);
 	}
 
 	// Método estático para obter a instância única  
