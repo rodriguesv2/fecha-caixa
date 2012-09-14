@@ -81,6 +81,12 @@ public class SobreActivity extends Activity{
 		super.finish();
 	}
 	
+	@Override
+	public void onBackPressed(){
+		soundManager.playSound(SoundManager.BOTAO_NAVEGACAO);
+		super.onBackPressed();
+	}
+	
 	public void botaoCredito(View view){
 		soundManager.playSound(SoundManager.BOTAO_NAVEGACAO);
 		Intent intent = new Intent(this, ControllerActivity.class); //determina a nova Activity

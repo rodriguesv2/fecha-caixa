@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import closebox.service.*;
 import closebox.service.MusicaPrincipalService.LocalBinder;
 
+import closebox.audio.SoundManager;
 import closebox.controle.*;
 
 import android.app.Activity;
@@ -75,6 +76,7 @@ public class TelaJogoActivity extends Activity{
 	private boolean calcularPontos = false;
 	private boolean jahDesistiu = false;
 	private Controle controle;
+	private SoundManager soundManager;
 	private boolean mBound = false;
 	private MusicaPrincipalService musicaPrincipalService;
 	
@@ -111,10 +113,13 @@ public class TelaJogoActivity extends Activity{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		soundManager = SoundManager.getInstance(this);
 		bindService(new Intent(this, MusicaPrincipalService.class), serviceConnection, Context.BIND_AUTO_CREATE);
 		
 		threadDado1(); // faz o dado 1 girar
 		threadDado2(); // faz o dado 2 girar
+		threadDado1Som();
+		threadDado2Som();
 		handler = new Handler();
 		dadosIntent = getIntent();
 		instanciarObjetos();
@@ -345,6 +350,67 @@ public class TelaJogoActivity extends Activity{
 		controle.setDado2Parado(false);
 	}
 	
+	/**
+	 * Thread responsavel por fazer o efeito do Dado 1.
+	 * Faz o dado 1 girar.
+	 */
+	public void threadDado1Som() {
+		runnable1 = new Runnable() {
+			int i = 2;
+			@Override
+			public void run() {
+				controle.setGirarDado1(true);
+				while (controle.getGirarDado1()) {
+					final int value = i;
+					try {
+						Thread.sleep(500);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+					handler.post(new Runnable() {
+						@Override
+						public void run() {
+								//soundManager.playSound(SoundManager.DADO_GIRANDO);
+						}
+					});
+				}
+			}
+		};
+		new Thread(runnable1).start();
+		controle.setDado1Parado(false);
+	}
+
+	/**
+	 * Thread responsavel por fazer o efeito do Dado 2.
+	 * Faz o dado 2 girar.
+	 */
+	public void threadDado2Som() {
+		// Do something long
+		runnable2 = new Runnable() {
+			int i = 4;
+			@Override
+			public void run() {
+				controle.setGirarDado2(true);
+				while (controle.getGirarDado2()) {
+
+					final int value = i;
+					try {
+						Thread.sleep(500);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+					handler.post(new Runnable() {
+						@Override
+						public void run() {
+								//soundManager.playSound(SoundManager.DADO_GIRANDO);
+						}
+					});
+				}
+			}
+		};
+		new Thread(runnable2).start();
+		controle.setDado2Parado(false);
+	}
 	
 	/**
 	 * Faz com que os dados voltem a posição de jogar.
@@ -411,6 +477,8 @@ public class TelaJogoActivity extends Activity{
 		if(((controle.getDado1Parado() && controle.getDado2Parado()) 
 				|| (controle.getDado1Parado() && controle.getEhUmDado())) && !calcularPontos){
 
+			soundManager.playSound(SoundManager.PLACA_ABAIXANDO);
+			
 			ImageView placa = (ImageView)findViewById(view.getId());
 			ImageView placaDown = (ImageView)findViewById(controle.identificarPlacaDown(view));
 
@@ -439,7 +507,9 @@ public class TelaJogoActivity extends Activity{
 		}
 		if(controle.isGirarDados()){
 			threadDado1();
+			threadDado1Som();
 			threadDado2();
+			threadDado2Som();
 			controle.setGirarDados(false);
 			escondeDadoLancado();
 		}
@@ -458,7 +528,9 @@ public class TelaJogoActivity extends Activity{
 			mensagemJogadaErrada(placa, 0);
 			levantarPlaca(controle.qualEhAPosicaoDaPlaca(placa));
 			threadDado1();
+			threadDado1Som();
 			threadDado2();
+			threadDado2Som();
 			controle.setGirarDados(false);
 			escondeDadoLancado();
 		}
@@ -471,6 +543,8 @@ public class TelaJogoActivity extends Activity{
 		if(controle.isGirarDados()){
 			threadDado1();
 			threadDado2();
+			threadDado1Som();
+			threadDado2Som();
 		}
 	}
 	
@@ -681,6 +755,8 @@ public class TelaJogoActivity extends Activity{
 		dialogo.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
 			
 			public void onClick(DialogInterface dialog, int which) {
+				controle.setDado1Parado(true);
+				controle.setDado2Parado(true);
 				finish();
 			}
 		});

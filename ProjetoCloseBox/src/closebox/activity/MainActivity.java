@@ -24,7 +24,7 @@ public class MainActivity extends Activity {
     private boolean mBound = false;
     private MusicaPrincipalService musicaPrincipalService;
     private SoundManager soundManager;
-  //Atributo sobrescrito para conexão com o serviço de musica.
+    //Atributo sobrescrito para conexão com o serviço de musica.
 	private ServiceConnection serviceConnection = new ServiceConnection() {
 		@Override
 		public void onServiceDisconnected(ComponentName name) {
@@ -35,6 +35,7 @@ public class MainActivity extends Activity {
 		public void onServiceConnected(ComponentName name, IBinder service) {
 			LocalBinder localBinder = (LocalBinder)service;
 			musicaPrincipalService = localBinder.getService();
+			musicaPrincipalService.playMusic();
 			mBound = true;
 		}
 	};

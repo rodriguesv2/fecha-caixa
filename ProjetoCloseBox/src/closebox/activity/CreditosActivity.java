@@ -93,6 +93,12 @@ public class CreditosActivity extends Activity{
 		super.finish();
 	}
 	
+	@Override
+	public void onBackPressed(){
+		soundManager.playSound(SoundManager.BOTAO_NAVEGACAO);
+		super.onBackPressed();
+	}
+	
 	/**
 	 * Insere um texto na TextView da tela, proveniente do método getCredito() da classe Creditos do pacote Model.
 	 */

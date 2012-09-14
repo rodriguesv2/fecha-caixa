@@ -106,6 +106,12 @@ public class InserirNomeActivity extends Activity {
 		//soundManager.cleanup();
 		super.finish();
 	}
+	
+	@Override
+	public void onBackPressed(){
+		soundManager.playSound(SoundManager.BOTAO_NAVEGACAO);
+		super.onBackPressed();
+	}
     
 	/**
 	 * Metodo chamado ao pressionar o botao "OK"

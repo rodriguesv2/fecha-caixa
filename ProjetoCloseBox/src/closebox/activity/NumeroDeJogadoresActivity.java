@@ -82,6 +82,12 @@ public class NumeroDeJogadoresActivity extends Activity{
 		super.finish();
 	}
 	
+	@Override
+	public void onBackPressed(){
+		soundManager.playSound(SoundManager.BOTAO_NAVEGACAO);
+		super.onBackPressed();
+	}
+	
 	/**
 	 * Determina a quantidade de jogadores
 	 * @param view o proprio botao selecionado pelo Jogador, que apresenta as imagens '1', '2' ou '3'.
