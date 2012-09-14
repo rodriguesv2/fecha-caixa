@@ -699,6 +699,7 @@ public class TelaJogoActivity extends Activity{
 	 */
 	public void desistir(View view){
 		if(!jahDesistiu){
+			soundManager.playSound(SoundManager.SINO);
 			jahDesistiu = true;
 			AlertDialog.Builder dialogo = new AlertDialog.Builder(this);
 			dialogo.setTitle("NÃO É POSSÍVEL PROSSEGUIR!");
