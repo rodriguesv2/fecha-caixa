@@ -96,6 +96,12 @@ public class HistoriaActivity extends Activity{
 		super.finish();
 	}
 	
+	@Override
+	public void onBackPressed(){
+		soundManager.playSound(SoundManager.BOTAO_NAVEGACAO);
+		super.onBackPressed();
+	}
+	
 	/**
 	 * Metodo que verifica o numero da tela atual (imagem) sendo mostrada na historia,
 	 * de acordo com a tela, mostra ou esconde os botoes 'next' e 'back'.

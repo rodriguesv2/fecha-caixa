@@ -1,5 +1,6 @@
 package closebox.activity;
 
+import closebox.audio.SoundManager;
 import closebox.controle.Controle;
 import closebox.service.MusicaPrincipalService;
 import closebox.service.MusicaPrincipalService.LocalBinder;
@@ -23,6 +24,7 @@ public class OptionsActivity extends Activity{
 	private CheckBox musicaCheck;
 	private CheckBox somCheck;
 	private Controle controle;
+	private SoundManager soundManager;
 	private boolean mBound = false;
 	private MusicaPrincipalService musicaPrincipalService;
 	private ServiceConnection serviceConnection = new ServiceConnection() {
@@ -49,6 +51,8 @@ public class OptionsActivity extends Activity{
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		
+		soundManager = SoundManager.getInstance(this);
 		
 		musicaCheck = (CheckBox)findViewById(R.id.checkMusica);
 		somCheck = (CheckBox)findViewById(R.id.checkSom);
@@ -88,10 +92,17 @@ public class OptionsActivity extends Activity{
 	}
 	
 	public void acao(View view){
+		soundManager.playSound(SoundManager.BOTAO_NAVEGACAO);
 	    controle.alterarOpcoes(musicaCheck.isChecked(), somCheck.isChecked());
+	    if(!musicaCheck.isChecked())
+	    	musicaPrincipalService.pauseMusic();
+	    else
+	    	musicaPrincipalService.playMusic();
 	}
 	
 	public void voltar(View view){
+		if(controle.getEfeitos())
+			soundManager.playSound(SoundManager.BOTAO_NAVEGACAO);
 		super.onBackPressed();
 	}
 }

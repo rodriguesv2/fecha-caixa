@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import closebox.activity.ControllerActivity;
 import closebox.activity.R;
+import closebox.audio.SoundManager;
 import closebox.controle.Controle;
 import closebox.model.Jogador;
 import closebox.service.MusicaPrincipalService;
@@ -41,6 +42,7 @@ public class ScoreActivity extends Activity {
 	private int jogAtual, pontoJog; // o indice do jogador atual e a sua pontuação
 	private String nomeJog = ""; //o nome do jogador
 	private Controle controle;
+	private SoundManager soundManager;
 	private boolean mBound = false;
 	private MusicaPrincipalService musicaPrincipalService;
 	//Atributo sobrescrito para conexão com o serviço de musica.
@@ -64,6 +66,7 @@ public class ScoreActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		intentIn = getIntent();
 		defineAcaoOrigem();
+		soundManager = SoundManager.getInstance(this);
 		
 		bindService(new Intent(this, MusicaPrincipalService.class), serviceConnection, Context.BIND_AUTO_CREATE);
 	}
@@ -94,6 +97,12 @@ public class ScoreActivity extends Activity {
 		if(mBound)
 			unbindService(serviceConnection);
 		super.onDestroy();
+	}
+	
+	@Override
+	public void onBackPressed(){
+		soundManager.playSound(SoundManager.BOTAO_NAVEGACAO);
+		super.onBackPressed();
 	}
 	
 	/**
