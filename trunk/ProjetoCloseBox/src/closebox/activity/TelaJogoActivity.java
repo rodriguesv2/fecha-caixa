@@ -141,6 +141,9 @@ public class TelaJogoActivity extends Activity{
 	public void onPause(){
 		if(mBound)
 			musicaPrincipalService.pauseMusic();
+		//soundManager.stopSounds();
+		controle.setGirarDado1(false);
+		controle.setGirarDado2(false);
 		super.onPause();
 	}
 	
@@ -155,6 +158,9 @@ public class TelaJogoActivity extends Activity{
 	public void onDestroy(){
 		if(mBound)
 			unbindService(serviceConnection);
+		//soundManager.stopSounds();
+		controle.setGirarDado1(false);
+		controle.setGirarDado2(false);
 		super.onDestroy();
 	}
 	
@@ -363,7 +369,7 @@ public class TelaJogoActivity extends Activity{
 				while (controle.getGirarDado1()) {
 					final int value = i;
 					try {
-						Thread.sleep(500);
+						Thread.sleep(1010);
 					} catch (InterruptedException e) {
 						e.printStackTrace();
 					}
@@ -374,6 +380,7 @@ public class TelaJogoActivity extends Activity{
 						}
 					});
 				}
+				soundManager.stopSounds();
 			}
 		};
 		new Thread(runnable1).start();
@@ -395,7 +402,7 @@ public class TelaJogoActivity extends Activity{
 
 					final int value = i;
 					try {
-						Thread.sleep(500);
+						Thread.sleep(1010);
 					} catch (InterruptedException e) {
 						e.printStackTrace();
 					}
@@ -406,6 +413,7 @@ public class TelaJogoActivity extends Activity{
 						}
 					});
 				}
+				soundManager.stopSounds();
 			}
 		};
 		new Thread(runnable2).start();
@@ -436,6 +444,7 @@ public class TelaJogoActivity extends Activity{
 	public void acaoDado(View view){
 		ImageView dado = (ImageView)findViewById(view.getId());
 		
+		soundManager.playSound(SoundManager.DADO_JOGANDO);
 		dado.setVisibility(View.INVISIBLE);
 		controle.acaoDado(view);
 		
@@ -477,6 +486,7 @@ public class TelaJogoActivity extends Activity{
 		if(((controle.getDado1Parado() && controle.getDado2Parado()) 
 				|| (controle.getDado1Parado() && controle.getEhUmDado())) && !calcularPontos){
 
+			//soundManager.stopSounds();
 			soundManager.playSound(SoundManager.PLACA_ABAIXANDO);
 			
 			ImageView placa = (ImageView)findViewById(view.getId());
