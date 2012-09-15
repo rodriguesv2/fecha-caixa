@@ -25,6 +25,7 @@ public class AbaixarPlacas {
 	private JogaDado jogaDado;
 	private Pontos pontos;
 	private ArrayList<String> listaJogadores;
+	private boolean flagLevantarPlacaSeUltima;
 	
 	public AbaixarPlacas(){
 		ordemDasPlacas = new int[9];
@@ -39,6 +40,7 @@ public class AbaixarPlacas {
 		mostraRanking = false;
 		perguntarSobreDado = false;
 		ultimaPlaca = false;
+		flagLevantarPlacaSeUltima = false;
 	}
 		
 	/**
@@ -341,6 +343,7 @@ public class AbaixarPlacas {
 					primeiraPlaca = false;
 					diferenca = somaDados - placa;
 					placaAnterior = placa;
+					flagLevantarPlacaSeUltima = true;
 				}else{
 					ultimaPlaca = true;
 				}
@@ -355,10 +358,12 @@ public class AbaixarPlacas {
 				perguntarSobreDado = true;
 				setFlagPlacasAltasTrue(placa);
 				setFlagPlacasAltasTrue(placaAnterior);
+				flagLevantarPlacaSeUltima = false;
 			}else{
 				levantarPlacas = true;
 				setFlagPlacasAltasFalse(placa);
 				setFlagPlacasAltasFalse(placaAnterior);
+				flagLevantarPlacaSeUltima = false;
 			}
 		}
 		if(qtdePlacas == 0){
@@ -367,6 +372,10 @@ public class AbaixarPlacas {
 			jogaDado.setGirarDado2(false);
 			calcularPontosRestantes = true;
 		}
+	}
+
+	public boolean isFlagLevantarPlacaSeUltima() {
+		return flagLevantarPlacaSeUltima;
 	}
 	
 	

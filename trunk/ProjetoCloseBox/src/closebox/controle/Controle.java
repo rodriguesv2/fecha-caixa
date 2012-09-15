@@ -27,6 +27,10 @@ public class Controle{
 		abaixarPlacas.setPontos(pontos);
 	}
 	
+	public boolean isFlagLevantarPlacaSeUltima(){
+		return abaixarPlacas.isFlagLevantarPlacaSeUltima();
+	}
+	
 	public int qualEhAPosicaoDaPlaca(int valor){
 		return abaixarPlacas.qualEhAPosicaoDaPlaca(valor);
 	}
