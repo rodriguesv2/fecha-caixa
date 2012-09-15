@@ -2,6 +2,7 @@
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/relativeLayout1"
         android:layout_width="fill_parent"
+        android:background="@drawable/bg_escolher_jogadores_gambi"
         android:layout_height="fill_parent" >
 
         <RelativeLayout
@@ -58,15 +59,6 @@
                 android:clickable="true"
                 android:onClick="escolherNumero"
                 android:src="@drawable/escolher_nome1" />
-
-            <ImageView
-                android:id="@+id/imageView1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/imageView5"
-                android:layout_alignParentLeft="true"
-                android:layout_marginBottom="54dp"
-                android:src="@drawable/title_escolher_numero" />
 
             <ImageView
                 android:id="@+id/imageView3"
