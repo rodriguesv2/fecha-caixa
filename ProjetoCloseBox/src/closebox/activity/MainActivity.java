@@ -1,8 +1,10 @@
 package closebox.activity;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.ComponentName;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.ServiceConnection;
 import android.content.Intent;
 import android.media.AudioManager;
@@ -84,7 +86,27 @@ public class MainActivity extends Activity {
 		//soundManager.cleanup();
 		super.finish();
 	}
+	
+	@Override
+	public void onBackPressed(){
+		AlertDialog.Builder dialogo = new AlertDialog.Builder(this);
+		dialogo.setTitle("Aviso!").setMessage("Tem certeza que deseja sair do jogo?");
+		
+		dialogo.setPositiveButton("sim", new DialogInterface.OnClickListener() {
+			
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				fecharPrograma();
+			}
+		});
+		
+		dialogo.setNegativeButton("Não", null).show();
+	}
     
+	public void fecharPrograma(){
+		super.onBackPressed();
+	}
+	
     public void botaoInicio(View view){
     	soundManager.playSound(SoundManager.BOTAO_NAVEGACAO);
     	intent = new Intent(MainActivity.this, ControllerActivity.class); //determina a nova Activity

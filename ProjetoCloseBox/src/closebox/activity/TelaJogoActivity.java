@@ -75,6 +75,7 @@ public class TelaJogoActivity extends Activity{
 	private ArrayList<Integer> listaRodadas;
 	private boolean calcularPontos = false;
 	private boolean jahDesistiu = false;
+	private int placaASerLevantada = 0;
 	private Controle controle;
 	private SoundManager soundManager;
 	private boolean mBound = false;
@@ -497,6 +498,7 @@ public class TelaJogoActivity extends Activity{
 
 			int[] ordemDasPlacas = controle.getOrdemDasPlacas();
 			int valorDaPlaca = ordemDasPlacas[(controle.getPosicaoDaPlaca(view)-1)];
+			placaASerLevantada = controle.qualEhAPosicaoDaPlaca(valorDaPlaca);
 			
 			calculaJogada(valorDaPlaca);
 		}
@@ -787,7 +789,14 @@ public class TelaJogoActivity extends Activity{
 		calcularPontos = true;
 		dado1.setVisibility(View.INVISIBLE);
 		dado2.setVisibility(View.INVISIBLE);
-		
+		levantarPlacaDeJogadaIncompleta();
+	}
+	
+	public void levantarPlacaDeJogadaIncompleta(){
+		if(placaASerLevantada != 0 && controle.isFlagLevantarPlacaSeUltima()){
+			levantarPlaca(placaASerLevantada);
+			placaASerLevantada = 0;
+		}
 	}
 	
 	/**

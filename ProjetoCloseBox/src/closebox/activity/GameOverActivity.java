@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.view.View;
 
 /**
  * Classe responsavel por mostrar a tela "GameOver" ao jogador
@@ -70,5 +71,15 @@ public class GameOverActivity extends Activity{ // CONSTRUTOR
 		if(mBound)
 			unbindService(serviceConnection);
 		super.onDestroy();
+	}
+	
+	public void menuPrincipal(View view){
+		//startActivity(new Intent(this, MainActivity.class));
+		finish();
+	}
+	
+	public void jogarNovamente(View view){
+		startActivity(new Intent(this, NumeroDeJogadoresActivity.class));
+		finish();
 	}
 }
