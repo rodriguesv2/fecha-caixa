@@ -1,5 +1,6 @@
 package closebox.activity;
 
+import closebox.audio.SoundManager;
 import closebox.service.MusicaPrincipalService;
 import closebox.service.MusicaPrincipalService.LocalBinder;
 import android.app.Activity;
@@ -18,6 +19,7 @@ import android.view.View;
  */
 public class GameOverActivity extends Activity{ // CONSTRUTOR
     
+	private SoundManager soundManager;
 	private boolean mBound = false;
 	private MusicaPrincipalService musicaPrincipalService;
 	//Atributo sobrescrito para conexão com o serviço de musica.
@@ -41,6 +43,7 @@ public class GameOverActivity extends Activity{ // CONSTRUTOR
         super.onCreate(savedInstanceState);
         //Coloca a tela main a frente.
         setContentView(R.layout.game_over);
+        soundManager = SoundManager.getInstance(this);
         
         bindService(new Intent(this, MusicaPrincipalService.class), serviceConnection, Context.BIND_AUTO_CREATE);
     }
@@ -74,11 +77,12 @@ public class GameOverActivity extends Activity{ // CONSTRUTOR
 	}
 	
 	public void menuPrincipal(View view){
-		//startActivity(new Intent(this, MainActivity.class));
+		soundManager.playSound(SoundManager.BOTAO_NAVEGACAO);
 		finish();
 	}
 	
 	public void jogarNovamente(View view){
+		soundManager.playSound(SoundManager.BOTAO_NAVEGACAO);
 		startActivity(new Intent(this, NumeroDeJogadoresActivity.class));
 		finish();
 	}

@@ -14,6 +14,7 @@ import android.os.IBinder;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import java.util.*;
 
@@ -32,9 +33,9 @@ public class InserirNomeActivity extends Activity {
 	private EditText editJogador1; //campo de texto para digitar o nome do Jogador
 	private EditText editJogador2;
 	private EditText editJogador3;
-	private TextView textJogador1; // o nome de exibição do Jogador
-	private TextView textJogador2;
-	private TextView textJogador3;
+	private ImageView textJogador1; // o nome de exibição do Jogador
+	private ImageView textJogador2;
+	private ImageView textJogador3;
 	private ArrayList<String> arrayJogadores; // lista com os nomes dos jogadores
 	private ArrayList<Integer> pontosJogador; // lista com pontos de vida dos jogadores
 	private ArrayList<Integer> listaRodadas; // lista com a pontuação (score) dos jogadores
@@ -232,9 +233,9 @@ public class InserirNomeActivity extends Activity {
 		editJogador1 = (EditText)findViewById(R.id.editText1);
 		editJogador2 = (EditText)findViewById(R.id.editText2);
 		editJogador3 = (EditText)findViewById(R.id.editText3);
-		textJogador1 = (TextView)findViewById(R.id.textView1);
-		textJogador2 = (TextView)findViewById(R.id.textView2);
-		textJogador3 = (TextView)findViewById(R.id.textView3);
+		textJogador1 = (ImageView)findViewById(R.id.imagemJogador1);
+		textJogador2 = (ImageView)findViewById(R.id.imagemJogador2);
+		textJogador3 = (ImageView)findViewById(R.id.imagemJogador3);
 		
 	}
 	
