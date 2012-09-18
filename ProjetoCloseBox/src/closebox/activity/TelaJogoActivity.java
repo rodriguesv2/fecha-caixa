@@ -19,6 +19,7 @@ import android.content.DialogInterface.OnClickListener;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
+import android.text.InputType;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -706,7 +707,7 @@ public class TelaJogoActivity extends Activity{
 			AlertDialog.Builder dialogo = new AlertDialog.Builder(this);
 			dialogo.setTitle("NÃO É POSSÍVEL PROSSEGUIR!");
 			dialogo.setMessage("Tem certeza que não há jogadas possíveis?");
-
+			
 			dialogo.setPositiveButton("CONFIRMAR", new OnClickListener() {
 				@Override
 				public void onClick(DialogInterface dialog, int which) {
@@ -870,6 +871,8 @@ public class TelaJogoActivity extends Activity{
 
 		final EditText inserirNumero = new EditText(this);
 		dialogo.setView(inserirNumero);
+		inserirNumero.setSingleLine(true);
+		inserirNumero.setInputType(InputType.TYPE_CLASS_NUMBER);
 
 		dialogo.setPositiveButton("Calcular", new OnClickListener() {
 
