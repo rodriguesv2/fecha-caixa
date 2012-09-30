@@ -82,7 +82,10 @@ public class TelaJogoActivity extends Activity{
 	private boolean mBound = false;
 	private MusicaPrincipalService musicaPrincipalService;
 	
-	private int[]listaDados = {R.drawable.new_dado_face1,R.drawable.new_dado_face2,R.drawable.new_dado_face3,
+	private int[]listaDados = {R.drawable.dado_gira1,R.drawable.dado_gira2,R.drawable.dado_gira3,R.drawable.dado_gira4,
+			R.drawable.dado_gira5,R.drawable.dado_gira6,R.drawable.dado_gira7,R.drawable.dado_gira8,R.drawable.dado_gira9};
+	
+	private int[]listaDadosParados = {R.drawable.new_dado_face1,R.drawable.new_dado_face2,R.drawable.new_dado_face3,
 			R.drawable.new_dado_face4,R.drawable.new_dado_face5,R.drawable.new_dado_face6};
 	
 	private int[] arrayImageViewPlaca = {R.id.imageViewPlaca_1,R.id.imageViewPlaca_2,R.id.imageViewPlaca_3,
@@ -459,7 +462,7 @@ public class TelaJogoActivity extends Activity{
 	 */
 	public void sortearDado1(){
 		controle.sorteioDado1();
-		dadoLancado1.setImageResource(listaDados[controle.getValorDado1()-1]);
+		dadoLancado1.setImageResource(listaDadosParados[controle.getValorDado1()-1]);
 		dadoLancado1.setVisibility(View.VISIBLE);
 	}
 	
@@ -468,7 +471,7 @@ public class TelaJogoActivity extends Activity{
 	 */
 	public void sortearDado2(){
 		controle.sorteioDado2();
-		dadoLancado2.setImageResource(listaDados[controle.getValorDado2()-1]);
+		dadoLancado2.setImageResource(listaDadosParados[controle.getValorDado2()-1]);
 		dadoLancado2.setVisibility(View.VISIBLE);
 	}
 	
