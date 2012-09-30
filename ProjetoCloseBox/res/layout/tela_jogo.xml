@@ -15,9 +15,9 @@
             android:id="@+id/checkedTextView1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:visibility="invisible"
+            android:text="# "
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="# " />
+            android:visibility="invisible" />
 
         <TextView
             android:id="@+id/jogadorText1"
@@ -43,9 +43,9 @@
             android:id="@+id/checkedTextView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:visibility="invisible"
+            android:text="# "
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="# " />
+            android:visibility="invisible" />
 
         <TextView
             android:id="@+id/jogadorText2"
@@ -71,9 +71,9 @@
             android:id="@+id/checkedTextView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:visibility="invisible"
+            android:text="# "
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="# " />
+            android:visibility="invisible" />
 
         <TextView
             android:id="@+id/jogadorText3"
@@ -95,26 +95,6 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0.92" >
-
-        <ImageView
-            android:id="@+id/imageView1"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_x="164dp"
-            android:layout_y="176dp"
-            android:clickable="true"
-            android:onClick="acaoDado"
-            android:src="@drawable/new_dado_face2" />
-
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_x="280dp"
-            android:layout_y="174dp"
-            android:clickable="true"
-            android:onClick="acaoDado"
-            android:src="@drawable/new_dado_face5" />
 
         <ImageView
             android:id="@+id/imageViewPlaca_1"
@@ -344,6 +324,7 @@
             android:layout_x="415dp"
             android:layout_y="174dp"
             android:text="Pontos" />
+
         <TextView
             android:id="@+id/rodada"
             android:layout_width="wrap_content"
@@ -353,6 +334,25 @@
             android:text=""
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="98dp"
+            android:layout_height="84dp"
+            android:layout_x="144dp"
+            android:layout_y="150dp"
+            android:clickable="true"
+            android:onClick="acaoDado"
+            android:src="@drawable/dado_gira2" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="98dp"
+            android:layout_height="84dp"
+            android:layout_x="242dp"
+            android:layout_y="150dp"
+            android:clickable="true"
+            android:onClick="acaoDado"
+            android:src="@drawable/dado_gira5" />
     </AbsoluteLayout>
 
 </LinearLayout>
