@@ -1,27 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="@drawable/background_game_over" >
 
     <ImageView
-        android:id="@+id/imageView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="5dp"
-        android:layout_y="85dp"
-        android:clickable="true"
-        android:onClick="jogarNovamente"
-        android:src="@drawable/bot_jogar_novamente" />
-
-    <ImageView
         android:id="@+id/imageView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_x="285dp"
-        android:layout_y="85dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="60dp"
+        android:layout_marginTop="59dp"
         android:clickable="true"
         android:onClick="menuPrincipal"
         android:src="@drawable/bot_menu_principal" />
 
-</AbsoluteLayout>
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignTop="@+id/imageView2"
+        android:layout_marginLeft="29dp"
+        android:clickable="true"
+        android:onClick="jogarNovamente"
+        android:src="@drawable/bot_jogar_novamente" />
+
+</RelativeLayout>

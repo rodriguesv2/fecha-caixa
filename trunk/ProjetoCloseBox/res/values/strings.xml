@@ -3,5 +3,7 @@
 
     <string name="hello">Hello World, mainActivity!</string>
     <string name="app_name">Close Box</string>
+    <string name="jogador">   Jogador :</string>
+    <string name="pontuacao">   Pontuação :</string>
 
 </resources>

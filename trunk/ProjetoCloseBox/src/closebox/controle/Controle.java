@@ -280,6 +280,15 @@ public class Controle{
 	}
 	
 	/**
+	 * Chama o metodo da classe model.Score que busca a menor pontuacao armazenada no banco.
+	 * @return um numero inteiro, a menor pontuacao armazenada no banco.
+	 * @throws Exception possiveis erros ao buscar dados no banco.
+	 */
+	public boolean maiorPontuacaoGravada(int pontos) throws Exception{
+		return score.maiorRegistro(pontos);
+	}
+	
+	/**
 	 * Chama o metodo da classe model.Score que busca a quantidade de registros armazenados no banco.
 	 * @return um num inteiro, a quantidade de registros armazenados no banco.
 	 * @throws Exception possiveis erros ao buscar dados no banco.

@@ -60,6 +60,15 @@ public class Score {
 	}
 	
 	/**
+	 * Chama o metodo da classe databaseAcess.Score que retorna a maior pontuacao armazenada no banco de dados.
+	 * @return um numero inteiro, a maior pontuacao armazenada no banco de dados.
+	 * @throws Exception possiveis erros de conexao com o banco de dados.
+	 */
+	public boolean maiorRegistro(int pontos) throws Exception{
+		return dao.getMaiorPonto(pontos);
+	}
+	
+	/**
 	 * Chama o metodo da classe databaseAcess.Score que retorna o total de registros armazenados no banco de dados.
 	 * @return um numero inteiro, o total de registros armazenados no banco de dados.
 	 * @throws Exception possiveis erros de conexao com o banco de dados.
