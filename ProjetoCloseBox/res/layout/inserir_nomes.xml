@@ -92,34 +92,48 @@
             android:singleLine="true"
             android:visibility="invisible" />
 
+
+
     </LinearLayout>
-
-
-
-    <AbsoluteLayout
+
+    <FrameLayout
+        android:id="@+id/frameLayout1"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent" >
+        android:layout_height="fill_parent"
+        >
+        
+        
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="80dp" 
+            >
+              <ImageView
+            android:id="@+id/buttonCancelar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+        	android:layout_marginRight="24dp"
+        	android:layout_alignParentRight="true"
+        	android:layout_alignParentBottom="true"
+            android:clickable="true"
+            android:onClick="botaoCancelar"
+            android:src="@drawable/bot_cancelar" />
 
         <ImageView
             android:id="@+id/buttonOK"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_x="7dp"
-            android:layout_y="16dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="24dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
             android:clickable="true"
             android:onClick="botaoOk"
             android:src="@drawable/bot_ok" />
+            
+        
 
-        <ImageView
-            android:id="@+id/buttonCancelar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_x="293dp"
-            android:layout_y="16dp"
-            android:clickable="true"
-            android:onClick="botaoCancelar"
-            android:src="@drawable/bot_cancelar" />
-
-    </AbsoluteLayout>
+    </RelativeLayout>
+    </FrameLayout>
 
 </LinearLayout>

@@ -240,13 +240,16 @@ public class ScoreActivity extends Activity {
 	 */
 	private void gravarJogador(String valorNome, int valorPontos){
 		try {
-			controle = new Controle(this.getApplicationContext());   
+			controle = new Controle(this.getApplicationContext()); 
+			if(controle.maiorPontuacaoGravada(valorPontos)){
+				Toast toast = Toast.makeText(getBaseContext(),"NOVO RECORD! PARABÉNS", Toast.LENGTH_SHORT);
+				toast.show();
+			}
 			controle.insereNoBanco(valorNome, valorPontos);			   		   
 		   }
 		   catch(Exception erro) {
 			   mensagemExibir("Erro Banco", "Erro ao gravar dados no banco: "+erro.getMessage());
-			  
-		   }
+			}
 	}
 	
 	/**

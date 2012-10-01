@@ -101,6 +101,29 @@ public class ScoreDao extends SQLiteOpenHelper{
 		bancoDados.close();
 		return menor;
 	}
+	
+	/**
+	 * Metodo que busca a maior pontuação gravada no BD
+	 * @return a maior pontuação
+	 * @throws Exception
+	 */
+	public boolean getMaiorPonto(int pontos)throws Exception{
+		bancoDados = getWritableDatabase();
+		boolean ehMaior = false;
+		int maior = 0;
+		try { 
+			cursor = bancoDados.rawQuery("select max("+ CAMPO_RODADAS +") from jogador;", null); //select min(rodadas) from jogador
+			cursor.moveToFirst();
+			maior = cursor.getInt(cursor.getColumnIndex("max(" + CAMPO_RODADAS + ")" ));
+		} catch (Exception erro) {
+			throw erro;
+		}
+		if(pontos>maior)ehMaior = true;
+		cursor.close();
+		bancoDados.close();
+		return ehMaior;
+	}
+	
 	/**
 	 * Metodo utilizado para guardar os valores passados por parametro no banco de dados
 	 * @param valorNome o nome do Jogador
@@ -203,6 +226,7 @@ public class ScoreDao extends SQLiteOpenHelper{
 		// TODO Auto-generated method stub
 		
 	}
+	
 }
 
 

@@ -30,7 +30,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/nome4"
         android:layout_alignParentLeft="true"
-        android:text="Jogador :"
+        android:hint="@string/jogador"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView
@@ -40,7 +40,7 @@
         android:layout_alignBaseline="@+id/nome4"
         android:layout_alignBottom="@+id/nome4"
         android:layout_alignParentLeft="true"
-        android:text="Pontuação: "
+        android:hint="@string/pontuacao"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
 </RelativeLayout>
