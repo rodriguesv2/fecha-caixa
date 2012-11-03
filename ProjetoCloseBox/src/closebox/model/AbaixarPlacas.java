@@ -91,6 +91,10 @@ public class AbaixarPlacas {
 		return calcularPontosRestantes;
 	}
 
+	public void setCalcularPontosRestantes(boolean calcularPontosRestantes) {
+		this.calcularPontosRestantes = calcularPontosRestantes;
+	}
+
 	/**
 	 * Recebe o objeto JogaDado para manter o controle do mesmo.
 	 * @param jogaDado Classe JogaDado.

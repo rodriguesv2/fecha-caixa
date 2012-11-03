@@ -76,28 +76,29 @@ public class TelaJogoActivity extends Activity{
 	private ArrayList<Integer> listaRodadas;
 	private boolean calcularPontos = false;
 	private boolean jahDesistiu = false;
+	private boolean ultimaPlacaJogada = false;
 	private int placaASerLevantada = 0;
 	private Controle controle;
 	private SoundManager soundManager;
 	private boolean mBound = false;
 	private MusicaPrincipalService musicaPrincipalService;
-	
+
 	private int[]listaDados = {R.drawable.dado_gira1,R.drawable.dado_gira2,R.drawable.dado_gira3,R.drawable.dado_gira4,
 			R.drawable.dado_gira5,R.drawable.dado_gira6,R.drawable.dado_gira7,R.drawable.dado_gira8,R.drawable.dado_gira9};
-	
+
 	private int[]listaDadosParados = {R.drawable.new_dado_face1,R.drawable.new_dado_face2,R.drawable.new_dado_face3,
 			R.drawable.new_dado_face4,R.drawable.new_dado_face5,R.drawable.new_dado_face6};
-	
+
 	private int[] arrayImageViewPlaca = {R.id.imageViewPlaca_1,R.id.imageViewPlaca_2,R.id.imageViewPlaca_3,
 			R.id.imageViewPlaca_4,R.id.imageViewPlaca_5,R.id.imageViewPlaca_6,
 			R.id.imageViewPlaca_7,R.id.imageViewPlaca_8,R.id.imageViewPlaca_9};
-	
+
 	//Atributo sobrescrito para conexão com o serviço de musica.
 	private ServiceConnection serviceConnection = new ServiceConnection() {
 		@Override
 		public void onServiceDisconnected(ComponentName name) {
 			mBound = false;
-			
+
 		}
 		@Override
 		public void onServiceConnected(ComponentName name, IBinder service) {
@@ -107,7 +108,7 @@ public class TelaJogoActivity extends Activity{
 			mBound = true;
 		}
 	};
-	
+
 	@Override
 	public void onCreate(Bundle savedInstanceState){ // metodo CONSTRUTOR
 		super.onCreate(savedInstanceState);
@@ -120,7 +121,7 @@ public class TelaJogoActivity extends Activity{
 		}
 		soundManager = SoundManager.getInstance(this);
 		bindService(new Intent(this, MusicaPrincipalService.class), serviceConnection, Context.BIND_AUTO_CREATE);
-		
+
 		threadDado1(); // faz o dado 1 girar
 		threadDado2(); // faz o dado 2 girar
 		threadDado1Som();
@@ -132,16 +133,16 @@ public class TelaJogoActivity extends Activity{
 		dadoLancado1.setVisibility(View.INVISIBLE);
 		dadoLancado2.setVisibility(View.INVISIBLE);
 		embaralharPlaca();
-		
+
 	}
-	
+
 	@Override
 	public void onResume(){
 		if(mBound)
 			musicaPrincipalService.playMusic();
 		super.onResume();
 	}
-	
+
 	@Override
 	public void onPause(){
 		if(mBound)
@@ -151,14 +152,14 @@ public class TelaJogoActivity extends Activity{
 		controle.setGirarDado2(false);
 		super.onPause();
 	}
-	
+
 	@Override
 	public void onStart(){
 		if(mBound)
 			musicaPrincipalService.playMusic();
 		super.onStart();
 	}
-	
+
 	@Override
 	public void onDestroy(){
 		if(mBound)
@@ -168,7 +169,7 @@ public class TelaJogoActivity extends Activity{
 		controle.setGirarDado2(false);
 		super.onDestroy();
 	}
-	
+
 	/**
 	 * Responsavel por alterar a posicao das placas, de maneira que elas nao sejam apresentadas
 	 * de forma crescente de 1 a 9, mas sim de forma aleatoria, a cada nova tela (ao trocar de Jogador ou nova rodada).
@@ -176,13 +177,13 @@ public class TelaJogoActivity extends Activity{
 	public void embaralharPlaca(){
 		int[] arrayDeImagens = controle.embaralharPlacas();
 		ImageView placa;
-		
+
 		for(int i = 0; i < 9; i++){
 			placa = (ImageView)findViewById(arrayImageViewPlaca[i]);
 			placa.setImageResource(arrayDeImagens[i]);
 		}
 	}
-	
+
 	/**
 	 * Mostra apenas as TextViews com conteudo, de acordo com a quantidade de jogadores.
 	 */
@@ -194,32 +195,32 @@ public class TelaJogoActivity extends Activity{
 		jogadorAtual = dadosIntent.getIntExtra("jogadorAtual", 0);
 		listaRodadas = dadosIntent.getIntegerArrayListExtra("listaRodadas");
 		controle.setPontosRanking(listaRodadas.get(jogadorAtual));
-		
+
 		ArrayList<String> listaJogadores = controle.getListaDeJogadores();
 		ArrayList<Integer> listaPontuacao = controle.getListaPontuacao();
-		
+
 		Toast toast = Toast.makeText(getBaseContext(), "Agora é a vez de "+ listaJogadores.get(jogadorAtual), Toast.LENGTH_SHORT);
 		toast.show();
-		
+
 		if(controle.getQuantidadejogador() == 1){
 			jogador2.setVisibility(View.INVISIBLE);
 			jogador3.setVisibility(View.INVISIBLE);
 			pontos2.setVisibility(View.INVISIBLE);
 			pontos3.setVisibility(View.INVISIBLE);
-					
+
 			jogador1.setText(listaJogadores.get(0)+"  ");
 			pontos1.setText(listaPontuacao.get(0)+"");
-			
-		
+
+
 		}else if(controle.getQuantidadejogador() == 2){
 			jogador3.setVisibility(View.INVISIBLE);
 			pontos3.setVisibility(View.INVISIBLE);
-			
+
 			jogador1.setText(listaJogadores.get(0)+"  ");
 			pontos1.setText(listaPontuacao.get(0)+"");
 			jogador2.setText(listaJogadores.get(1)+"  ");
 			pontos2.setText(listaPontuacao.get(1)+"");
-		
+
 		}else{
 			jogador1.setText(listaJogadores.get(0)+"  ");
 			pontos1.setText(listaPontuacao.get(0)+"");
@@ -231,7 +232,7 @@ public class TelaJogoActivity extends Activity{
 		rodadaAtual.setText(controle.getPontosRanking()+"");
 		apontaJogador(jogadorAtual);
 	}
-	
+
 	/**
 	 * Inicializa os objetos, isto é, as imagens visiveis ao Jogador.
 	 */
@@ -269,7 +270,7 @@ public class TelaJogoActivity extends Activity{
 		okSomaPlacas = (Button)findViewById(R.id.okSomaPlacas);
 		rodadaAtual = (TextView)findViewById(R.id.rodada);
 	}
-	
+
 	/**
 	 * Adiciona um # a frente do nome da rodada.
 	 * @param jogador o indice do Jogador atual
@@ -286,7 +287,7 @@ public class TelaJogoActivity extends Activity{
 			apontador.setVisibility(View.VISIBLE);
 		}
 	}
-	
+
 	/**
 	 * Thread responsavel por fazer o efeito do Dado 1.
 	 * Faz o dado 1 girar.
@@ -360,7 +361,7 @@ public class TelaJogoActivity extends Activity{
 		new Thread(runnable2).start();
 		controle.setDado2Parado(false);
 	}
-	
+
 	/**
 	 * Thread responsavel por fazer o efeito do Dado 1.
 	 * Faz o dado 1 girar.
@@ -381,7 +382,7 @@ public class TelaJogoActivity extends Activity{
 					handler.post(new Runnable() {
 						@Override
 						public void run() {
-								//soundManager.playSound(SoundManager.DADO_GIRANDO);
+							//soundManager.playSound(SoundManager.DADO_GIRANDO);
 						}
 					});
 				}
@@ -414,7 +415,7 @@ public class TelaJogoActivity extends Activity{
 					handler.post(new Runnable() {
 						@Override
 						public void run() {
-								//soundManager.playSound(SoundManager.DADO_GIRANDO);
+							//soundManager.playSound(SoundManager.DADO_GIRANDO);
 						}
 					});
 				}
@@ -424,7 +425,7 @@ public class TelaJogoActivity extends Activity{
 		new Thread(runnable2).start();
 		controle.setDado2Parado(false);
 	}
-	
+
 	/**
 	 * Faz com que os dados voltem a posição de jogar.
 	 */
@@ -439,7 +440,7 @@ public class TelaJogoActivity extends Activity{
 			dado1.setVisibility(View.VISIBLE);
 		}
 	}
-	
+
 	/**
 	 * Ao tocar no dado esse metodo é disparado.
 	 * Esconde a imagem do dado girando, faz o sorteio de um numero aleatorio entre 1 e 6 e
@@ -448,15 +449,15 @@ public class TelaJogoActivity extends Activity{
 	 */
 	public void acaoDado(View view){
 		ImageView dado = (ImageView)findViewById(view.getId());
-		
+
 		soundManager.playSound(SoundManager.DADO_JOGANDO);
 		dado.setVisibility(View.INVISIBLE);
 		controle.acaoDado(view);
-		
+
 		if(view.getId() == R.id.imageView1)sortearDado1();
 		else							   sortearDado2();
 	}
-	
+
 	/**
 	 * Faz com que o numero sorteado corresponda a imagem do dado.
 	 */
@@ -465,7 +466,7 @@ public class TelaJogoActivity extends Activity{
 		dadoLancado1.setImageResource(listaDadosParados[controle.getValorDado1()-1]);
 		dadoLancado1.setVisibility(View.VISIBLE);
 	}
-	
+
 	/**
 	 * Faz com que o numero sorteado corresponda a imagem do dado.
 	 */
@@ -474,14 +475,14 @@ public class TelaJogoActivity extends Activity{
 		dadoLancado2.setImageResource(listaDadosParados[controle.getValorDado2()-1]);
 		dadoLancado2.setVisibility(View.VISIBLE);
 	}
-	
+
 	/**
 	 * Esconde o dado 2.
 	 */
 	public void inutilizarDado2(){
 		dado2.setVisibility(View.INVISIBLE);
 	}
-	
+
 	//-------------------------------------------------------------------------------------------------------------//
 	//caso de uso abaixar placas
 	/**
@@ -489,11 +490,12 @@ public class TelaJogoActivity extends Activity{
 	 */
 	public void abaixarPlaca(View view){
 		if(((controle.getDado1Parado() && controle.getDado2Parado()) 
-				|| (controle.getDado1Parado() && controle.getEhUmDado())) && !calcularPontos){
+				|| (controle.getDado1Parado() && controle.getEhUmDado())) && !calcularPontos &&
+				!controle.isCalcularPontosRestantes()){
 
 			//soundManager.stopSounds();
 			soundManager.playSound(SoundManager.PLACA_ABAIXANDO);
-			
+
 			ImageView placa = (ImageView)findViewById(view.getId());
 			ImageView placaDown = (ImageView)findViewById(controle.identificarPlacaDown(view));
 
@@ -503,18 +505,18 @@ public class TelaJogoActivity extends Activity{
 			int[] ordemDasPlacas = controle.getOrdemDasPlacas();
 			int valorDaPlaca = ordemDasPlacas[(controle.getPosicaoDaPlaca(view)-1)];
 			placaASerLevantada = controle.qualEhAPosicaoDaPlaca(valorDaPlaca);
-			
+
 			calculaJogada(valorDaPlaca);
 		}
 	}
-	
+
 	/**
 	 * Calcula a soma dos dados e valida a ação levando em conta se uma ou duas
 	 * placas foram abaixadas.
 	 */
 	public void calculaJogada(int placa){
 		controle.gerenciaJogada(placa);
-		
+
 		if(controle.isLevantarPlacas()){
 			int placa1 = controle.qualEhAPosicaoDaPlaca(placa);
 			int placa2 = controle.qualEhAPosicaoDaPlaca(controle.getPlacaAnterior());
@@ -543,15 +545,16 @@ public class TelaJogoActivity extends Activity{
 		if(controle.isUltimaPlaca() && !controle.isCalcularPontosRestantes()){
 			mensagemJogadaErrada(placa, 0);
 			levantarPlaca(controle.qualEhAPosicaoDaPlaca(placa));
-			threadDado1();
-			threadDado1Som();
-			threadDado2();
-			threadDado2Som();
-			controle.setGirarDados(false);
-			escondeDadoLancado();
+			//threadDado1();
+			//threadDado1Som();
+			//threadDado2();
+			//threadDado2Som();
+			//controle.setGirarDados(false);
+			//escondeDadoLancado();
+			controle.setCalcularPontosRestantes(true);
 		}
 	}
-	
+
 	/**
 	 * Faz a chamada dos metodos responsaveis pelo efeito dos dados girando.
 	 */
@@ -563,7 +566,7 @@ public class TelaJogoActivity extends Activity{
 			threadDado2Som();
 		}
 	}
-	
+
 	/**
 	 * Chamado quando ha uma jogada errada e se faz necessario levanta as placas que foram abaixadas
 	 * @param placa a ultima placa abaixada
@@ -578,7 +581,7 @@ public class TelaJogoActivity extends Activity{
 		controle.setDado2Parado(true);
 		controle.setPrimeiraPlaca(true);
 		controle.setPlacaAnterior(0);
-		
+
 		mensagemJogadaErrada(placaMensagem1, placaMensagem2);
 	}
 
@@ -592,42 +595,42 @@ public class TelaJogoActivity extends Activity{
 			placa1.setVisibility(View.VISIBLE);
 			placaDown1.setVisibility(View.INVISIBLE);
 			break;
-		
+
 		case 2:
 			placa2.setVisibility(View.VISIBLE);
 			placaDown2.setVisibility(View.INVISIBLE);
 			break;
-			
+
 		case 3:
 			placa3.setVisibility(View.VISIBLE);
 			placaDown3.setVisibility(View.INVISIBLE);
 			break;
-			
+
 		case 4:
 			placa4.setVisibility(View.VISIBLE);
 			placaDown4.setVisibility(View.INVISIBLE);
 			break;
-			
+
 		case 5:
 			placa5.setVisibility(View.VISIBLE);
 			placaDown5.setVisibility(View.INVISIBLE);
 			break;
-			
+
 		case 6:
 			placa6.setVisibility(View.VISIBLE);
 			placaDown6.setVisibility(View.INVISIBLE);
 			break;
-			
+
 		case 7:
 			placa7.setVisibility(View.VISIBLE);
 			placaDown7.setVisibility(View.INVISIBLE);
 			break;
-			
+
 		case 8:
 			placa8.setVisibility(View.VISIBLE);
 			placaDown8.setVisibility(View.INVISIBLE);
 			break;
-			
+
 		case 9:
 			placa9.setVisibility(View.VISIBLE);
 			placaDown9.setVisibility(View.INVISIBLE);
@@ -637,7 +640,7 @@ public class TelaJogoActivity extends Activity{
 			break;
 		}
 	}
-		
+
 	/**
 	 * Verifica se já foi perguntado se deseja jogar com apenas 1 dado.
 	 */
@@ -647,7 +650,7 @@ public class TelaJogoActivity extends Activity{
 			jahFoiPerguntadoSobreDados = true;
 		}
 	}
-	
+
 	/**
 	 * Detemina se deve haver dois dados.
 	 */
@@ -656,10 +659,10 @@ public class TelaJogoActivity extends Activity{
 			AlertDialog.Builder dialogo = new AlertDialog.Builder(this);
 			dialogo.setTitle("Sugestão");
 			dialogo.setMessage("As placas 7, 8 e 9 foram abaixadas.\n Deseja jogar " +
-					"com 1 dado?");
-			
+			"com 1 dado?");
+
 			dialogo.setPositiveButton("Sim", new OnClickListener() {
-				
+
 				@Override
 				public void onClick(DialogInterface dialog, int which) {
 					controle.setEhUmDado(true);
@@ -668,10 +671,10 @@ public class TelaJogoActivity extends Activity{
 			});
 			dialogo.setNegativeButton("Não", null);
 			dialogo.show();
-			
+
 		}
 	}
-	
+
 	/**
 	 * Dispara uma mensagem dizendo que a jogada é invalida.
 	 * @param placa1 placa abaixada 
@@ -680,12 +683,12 @@ public class TelaJogoActivity extends Activity{
 	private void mensagemJogadaErrada(int placa1, int placa2){
 		AlertDialog.Builder dialogo = new AlertDialog.Builder(this);
 		dialogo.setTitle("JOGADA ERRADA");
-		
+
 		if(!controle.isUltimaPlaca())
 			dialogo.setMessage("A soma de "+ placa2 +" e "+ placa1 + " não corresponde á soma dos dados!");
 		else
 			dialogo.setMessage("" + placa1 + " não corresponde á soma dos dados!");
-		
+
 		dialogo.setPositiveButton("OK", new OnClickListener() {	
 			@Override
 			public void onClick(DialogInterface dialogo, int qualBotao) {
@@ -696,9 +699,9 @@ public class TelaJogoActivity extends Activity{
 				}
 			}
 		});
-    	dialogo.show();
+		dialogo.show();
 	}
-	
+
 	/**
 	 * Exibe caixa de dialogo para o caso do jogador não conseguir mais jogar.
 	 * @param view o proprio botao "desistir"
@@ -710,7 +713,7 @@ public class TelaJogoActivity extends Activity{
 			AlertDialog.Builder dialogo = new AlertDialog.Builder(this);
 			dialogo.setTitle("NÃO É POSSÍVEL PROSSEGUIR!");
 			dialogo.setMessage("Tem certeza que não há jogadas possíveis?");
-			
+
 			dialogo.setPositiveButton("CONFIRMAR", new OnClickListener() {
 				@Override
 				public void onClick(DialogInterface dialog, int which) {
@@ -729,9 +732,9 @@ public class TelaJogoActivity extends Activity{
 					}
 				}
 			});
-			
+
 			dialogo.setOnCancelListener(new DialogInterface.OnCancelListener() {
-				
+
 				@Override
 				public void onCancel(DialogInterface dialog) {
 					jahDesistiu = false;
@@ -745,9 +748,9 @@ public class TelaJogoActivity extends Activity{
 	 */
 	public void calculaPontosRestantes(){
 		// inserir ou enviar para o Activity CALCULAR PONTOS DE VIDA
-		
+
 		intentOut = new Intent(this, ControllerActivity.class);
-		
+
 		intentOut.putExtra("botao", "calcularPontosDeVida");
 		intentOut.putExtra("numeroDeJogadores", controle.getQuantidadejogador());//quantidade de jogadores (int)
 		intentOut.putStringArrayListExtra("arrayJogadores", controle.getListaDeJogadores());//lista de nomes dos jogadores (String)
@@ -764,25 +767,25 @@ public class TelaJogoActivity extends Activity{
 	 */
 	@Override
 	public void onBackPressed(){
-		
+
 		AlertDialog.Builder dialogo = new AlertDialog.Builder(this);
 		dialogo.setTitle("Sair do Jogo");
 		dialogo.setMessage("Deseja realmente sair?");
-		
+
 		dialogo.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
-			
+
 			public void onClick(DialogInterface dialog, int which) {
 				controle.setDado1Parado(true);
 				controle.setDado2Parado(true);
 				finish();
 			}
 		});
-		
+
 		dialogo.setNegativeButton("Não", null);
-		
+
 		dialogo.show();
 	}
-	
+
 	/**
 	 * Mostra um editText para que seja inserido a soma das placas que nao foram abaixadas.
 	 */
@@ -795,14 +798,14 @@ public class TelaJogoActivity extends Activity{
 		dado2.setVisibility(View.INVISIBLE);
 		levantarPlacaDeJogadaIncompleta();
 	}
-	
+
 	public void levantarPlacaDeJogadaIncompleta(){
 		if(placaASerLevantada != 0 && controle.isFlagLevantarPlacaSeUltima()){
 			levantarPlaca(placaASerLevantada);
 			placaASerLevantada = 0;
 		}
 	}
-	
+
 	/**
 	 * Verifica se o Jogador inseriu os valores corretos na EditText do metodo mostrarCalcularPontos().
 	 * @param view o botao "ok" ao lado da EditText.
@@ -810,14 +813,14 @@ public class TelaJogoActivity extends Activity{
 	public void validarCalculoDoUsuario(View view){
 		try {
 			int somaDasPlacas = Integer.parseInt(campoSomaPlacas.getText().toString());
-			
+
 			if(somaDasPlacas == controle.getPontosRestantes()){
 				if((controle.getListaPontuacao().get(jogadorAtual) - controle.getPontosRestantes())
 						>= 0)					
 					dialogoCalculaPontosRestantes();
 				else
 					calculaPontosRestantes();
-				
+
 			}else{
 				dialogoErroDeCalculo(null);
 			}
@@ -825,35 +828,35 @@ public class TelaJogoActivity extends Activity{
 			dialogoErroDeCalculo(e);
 		}		
 	}
-	
+
 	/**
 	 * Mensagem exibida ao inserir valores incorretos na EditText do calculo de pontos restantes.
 	 * @param e a Exception do erro
 	 */
 	public void dialogoErroDeCalculo(NumberFormatException e){
 		AlertDialog.Builder dialogo = new AlertDialog.Builder(this);
-		
+
 		dialogo.setTitle("Erro");
 		if(e == null) dialogo.setMessage("Calculo não está correto.");
 		else          dialogo.setMessage("O campo está vazio ou preenchido errado.");
-		
+
 		dialogo.setNegativeButton("Ok", null);
 		dialogo.show();
 	}
-	
+
 	/**
 	 * Mensagem exibida ao inserir valores incorretos na EditText do calculo de pontos restantes.
 	 * @param e a Exception do erro
 	 */
 	public void dialogoErroDeCalculoRestante(NumberFormatException e){
 		AlertDialog.Builder dialogo = new AlertDialog.Builder(this);
-		
+
 		dialogo.setTitle("Erro");
 		if(e == null) dialogo.setMessage("Calculo não está correto.");
 		else          dialogo.setMessage("O campo está vazio ou preenchido errado.");
-		
+
 		dialogo.setPositiveButton("Ok", new OnClickListener() {
-			
+
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
 				dialogoCalculaPontosRestantes();
@@ -861,10 +864,10 @@ public class TelaJogoActivity extends Activity{
 		});
 		dialogo.show();
 	}
-	
+
 	/**
-	* Mensagem exibida para que seja inserido o valor da subtração dos pontos.
-	*/
+	 * Mensagem exibida para que seja inserido o valor da subtração dos pontos.
+	 */
 	public void dialogoCalculaPontosRestantes(){
 		AlertDialog.Builder dialogo = new AlertDialog.Builder(this);
 
@@ -896,5 +899,5 @@ public class TelaJogoActivity extends Activity{
 		});
 		dialogo.show();
 	}
-	
+
 }

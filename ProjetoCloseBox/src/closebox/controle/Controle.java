@@ -76,6 +76,10 @@ public class Controle{
 		return abaixarPlacas.isCalcularPontosRestantes();
 	}
 	
+	public void setCalcularPontosRestantes(boolean calcularPontosRestantes){
+		abaixarPlacas.setCalcularPontosRestantes(calcularPontosRestantes);
+	}
+	
 	public void gerenciaJogada(int placa){
 		abaixarPlacas.gerenciaJogada(placa);
 	}
