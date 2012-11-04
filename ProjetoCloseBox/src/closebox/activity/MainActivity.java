@@ -103,7 +103,7 @@ public class MainActivity extends Activity {
 		dialogo.setNegativeButton("Não", null).show();
 	}
     
-	public void fecharPrograma(){
+	private void fecharPrograma(){
 		super.onBackPressed();
 	}
 	

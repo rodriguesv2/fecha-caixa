@@ -85,12 +85,16 @@ public class AbaixarPlacas {
 
 	/**
 	 * Assinala se deve ou não calcular os pontos restantes
-	 * @return
+	 * @return boolean flag calcular pontos
 	 */
 	public boolean isCalcularPontosRestantes() {
 		return calcularPontosRestantes;
 	}
 
+	/**
+	 * Marcar flag de calcular pontos restantes.
+	 * @param boolean calcularPontosRestantes
+	 */
 	public void setCalcularPontosRestantes(boolean calcularPontosRestantes) {
 		this.calcularPontosRestantes = calcularPontosRestantes;
 	}
@@ -136,13 +140,18 @@ public class AbaixarPlacas {
 	}
 
 	/**
-	 * 
-	 * @param levantarPlacas
+	 * Faz a troca de ImageViews referentes as placas jogadas.
+	 * @param levantarPlacas - id da ImageView referente a placa.
 	 */
 	public void setLevantarPlacas(boolean levantarPlacas) {
 		this.levantarPlacas = levantarPlacas;
 	}
 
+	/**
+	 * Identificar as ImageView de placaDown pelas id de ImageView de placa 
+	 * @param view para a xml de tela
+	 * @return o id da ImageView placaDown
+	 */
 	public int identificarPlacaDown(View view){
 		int idPlacaDown;
 		
@@ -191,6 +200,10 @@ public class AbaixarPlacas {
 		return idPlacaDown;
 	}
 	
+	/**
+	 * Embaralha as imagens e ordena para colocar nas ImageViews de placas.
+	 * @return Array de inteiros referentes as IDs de imagens na R.drawable.
+	 */
 	public int[] embaralharPlacas(){
 		int[] arrayImagens  = {R.drawable.placa_1, R.drawable.placa_2, R.drawable.placa_3, R.drawable.placa_4
 				,R.drawable.placa_5, R.drawable.placa_6, R.drawable.placa_7, R.drawable.placa_8, R.drawable.placa_9};
@@ -222,10 +235,20 @@ public class AbaixarPlacas {
 		return novoArrayImagens;
 	}
 	
+	/**
+	 * Devolve a ordem que as placas se encontram. Só funciona se o metodo 
+	 * embaralharPlacas() for usado primeiro.
+	 * @return	Array de int referentes aos IDs de imagens.
+	 */
 	public int[] getOrdemDasPlacas(){
 		return ordemDasPlacas;
 	}
 	
+	/**
+	 * Apenas identifica qual numero a ImageView de placa está mostrando
+	 * @param valor
+	 * @return Inteiro referente a placa.
+	 */
 	public int qualEhAPosicaoDaPlaca(int valor){
 		int i = 0;
 		for(i = 0; i < 9; i++){
@@ -235,6 +258,11 @@ public class AbaixarPlacas {
 		return i+1;
 	}
 	
+	/**
+	 * Identifica aonde está a ImageView na telaJogo.xml
+	 * @param View view.
+	 * @return Inteiro referente a imageViewPlaca.
+	 */
 	public int getPosicaoDaPlaca(View view){
 		int posicao;
 		
@@ -283,51 +311,97 @@ public class AbaixarPlacas {
 		return posicao;
 	}
 	
+	/**
+	 * Seta a flag para informar se as 3 placas altas estão abaixadas.
+	 * @return Flag para liberar mensagem.
+	 */
 	public boolean placasAltasAbaixadas(){
 		if(placa7abaixada && placa8abaixada && placa9abaixada) return true;
 		else												   return false;
 	}
 	
+	/**
+	 * A partir do paramentro, marca se a placa abaixada é uma das altas e marca 
+	 * como levantada.
+	 * @param Int placa
+	 */
 	public void setFlagPlacasAltasFalse(int placa){
 		if(placa == 7) 	   placa7abaixada = false;
 		else if(placa == 8)placa8abaixada = false;
 		else if(placa == 9)placa9abaixada = false;
 	}
 	
+	/**
+	 * A partir do paramentro, marca se a placa abaixada é uma das altas e marca 
+	 * como abaixada. 
+	 * @param int valor
+	 */
 	public void setFlagPlacasAltasTrue(int valor){
 		if(valor == 7)     placa7abaixada = true;
 		else if(valor == 8)placa8abaixada = true;
 		else if(valor == 9)placa9abaixada = true;
 	}
 	
+	/**
+	 * Indica a quantidade de jogadores para o fluxo de jogadas.
+	 * @param int qtdeJogadores
+	 */
 	public void setQuantidadeJodador(int qtdeJogadores){
 		this.qtdeJogadores = qtdeJogadores;
 	}
 	
+	/**
+	 * Informa o numero de players atualmente.
+	 * @return Numero de jogadores atualmente.
+	 */
 	public int getQuantidadejogador(){
 		return qtdeJogadores;
 	}
 	
+	/**
+	 * Insere a lista de jogadores para gerenciar o fluxo de jogadas
+	 * @param ArrayList<String> listaJogadores
+	 */
 	public void setListaDeJogadores(ArrayList<String> listaJogadores){
 		this.listaJogadores = listaJogadores;
 	}
 	
+	/**
+	 * Retorna a lista de jogadores
+	 * @return ArrayList<String> de jogadores
+	 */
 	public ArrayList<String> getListaDeJogadores(){
 		return listaJogadores;
 	}
 	
+	/**
+	 * Marca qual foi a primeira placa abaixada quando ha à necessidade de 2 placas.
+	 * @param int placa
+	 */
 	public void setPlacaAnterior(int placa){
 		placaAnterior = placa;
 	}
 	
+	/**
+	 * Marca a flag para informar se a placa atual é a primeira.
+	 * @param boolean primeiraPlaca
+	 */
 	public void setPrimeiraPlaca(boolean primeiraPlaca){
 		this.primeiraPlaca = primeiraPlaca;
 	}
 	
+	/**
+	 * Informa se a placa atual é a última em pé.
+	 * @return boolean Ultima Placa.
+	 */
 	public boolean isUltimaPlaca() {
 		return ultimaPlaca;
 	}
 
+	/**
+	 * Faz toda a gerência da jogada atual.
+	 * @param int placa.
+	 */
 	public void gerenciaJogada(int placa){
 		int somaDados;
 		if(!jogaDado.getEhUmDado())somaDados = jogaDado.resultadoDaSoma();
@@ -378,6 +452,11 @@ public class AbaixarPlacas {
 		}
 	}
 
+	/**
+	 * Caso seja a ultima placa e a jogada for errada, informa a tela se deve levantar
+	 * a placa.
+	 * @return boolean - Flag ultima placa dever ser levantada.
+	 */
 	public boolean isFlagLevantarPlacaSeUltima() {
 		return flagLevantarPlacaSeUltima;
 	}
