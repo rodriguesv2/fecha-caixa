@@ -102,14 +102,14 @@ public class CreditosActivity extends Activity{
 	/**
 	 * Insere um texto na TextView da tela, proveniente do método getCredito() da classe Creditos do pacote Model.
 	 */
-	public void mostraCredito(){
+	private void mostraCredito(){
 		credito.setText(Creditos.getCredito());
 	}
 	
 	/**
 	 * Thread que faz o scroll do texto,  quando o texto chega ao fim, volta ao começo sucessivamente.
 	 */
-	public void passarCreditos(){
+	private void passarCreditos(){
 		Runnable runnable = new Runnable() {
 			 	
 			@Override

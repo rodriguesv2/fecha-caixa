@@ -19,7 +19,7 @@ import android.view.View;
  *
  */
 public class SobreActivity extends Activity{
-	
+
 	private boolean mBound = false;
 	private MusicaPrincipalService musicaPrincipalService;
 	private SoundManager soundManager;
@@ -28,7 +28,7 @@ public class SobreActivity extends Activity{
 		@Override
 		public void onServiceDisconnected(ComponentName name) {
 			mBound = false;
-			
+
 		}
 		@Override
 		public void onServiceConnected(ComponentName name, IBinder service) {
@@ -38,69 +38,70 @@ public class SobreActivity extends Activity{
 			mBound = true;
 		}
 	};
-	
+
+	@Override
 	public void onCreate(Bundle savedInstanceState){ // metodo CONSTRUTOR
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.sobre_novo);
 		soundManager = SoundManager.getInstance(this);
-		
+
 		bindService(new Intent(this, MusicaPrincipalService.class), serviceConnection, Context.BIND_AUTO_CREATE);
 	}
-	
+
 	@Override
 	public void onResume(){
 		if(mBound)
 			musicaPrincipalService.playMusic();
 		super.onResume();
 	}
-	
+
 	@Override
 	public void onPause(){
 		if(mBound)
 			musicaPrincipalService.pauseMusic();
 		super.onPause();
 	}
-	
+
 	@Override
 	public void onStart(){
 		if(mBound)
 			musicaPrincipalService.playMusic();
 		super.onStart();
 	}
-	
+
 	@Override
 	public void onDestroy(){
 		if(mBound)
 			unbindService(serviceConnection);
 		super.onDestroy();
 	}
-	
+
 	@Override
 	public void finish(){
 		//soundManager.cleanup();
 		super.finish();
 	}
-	
+
 	@Override
 	public void onBackPressed(){
 		soundManager.playSound(SoundManager.BOTAO_NAVEGACAO);
 		super.onBackPressed();
 	}
-	
+
 	public void botaoCredito(View view){
 		soundManager.playSound(SoundManager.BOTAO_NAVEGACAO);
 		Intent intent = new Intent(this, ControllerActivity.class); //determina a nova Activity
 		intent.putExtra("botao", "botaoCredito"); // o nome do botao, na verdade uma referencia a ser tratada no controller
 		startActivity(intent); // inicializa a nova Activity, envia os dados ao controller
 	}
-	
+
 	public void botaoHistoria(View view){
 		soundManager.playSound(SoundManager.BOTAO_NAVEGACAO);
 		Intent intent = new Intent(this, ControllerActivity.class); //determina a nova Activity
 		intent.putExtra("botao", "botaoHistoria"); // o nome do botao, na verdade uma referencia a ser tratada no controller
 		startActivity(intent); // inicializa a nova Activity, envia os dados ao controller
 	}
-	
+
 	public void botaoComoJogar(View view){
 		soundManager.playSound(SoundManager.BOTAO_NAVEGACAO);
 		Intent intent = new Intent(this, ControllerActivity.class); //determina a nova Activity
