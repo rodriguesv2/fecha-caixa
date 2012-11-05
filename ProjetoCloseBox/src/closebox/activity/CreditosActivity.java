@@ -1,7 +1,7 @@
 package closebox.activity;
 
 import closebox.audio.SoundManager;
-import closebox.model.Creditos;
+import closebox.controle.Controle;
 import closebox.service.MusicaPrincipalService;
 import closebox.service.MusicaPrincipalService.LocalBinder;
 import android.app.Activity;
@@ -103,7 +103,7 @@ public class CreditosActivity extends Activity{
 	 * Insere um texto na TextView da tela, proveniente do método getCredito() da classe Creditos do pacote Model.
 	 */
 	private void mostraCredito(){
-		credito.setText(Creditos.getCredito());
+		credito.setText(Controle.getCredito());
 	}
 	
 	/**
