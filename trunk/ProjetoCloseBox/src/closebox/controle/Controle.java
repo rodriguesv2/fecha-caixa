@@ -531,4 +531,12 @@ public class Controle{
 		return opcoes.getEfeitos();
 	}
 	
+	/**
+	 * Faz a chamada do método da classe Creditos para retornar para buscar o texto que será exibido na tela Créditos.
+	 * @return String Texto com os créditos.
+	 */
+	public static String getCredito() {
+		return Creditos.getCredito();
+	}
+	
 }
