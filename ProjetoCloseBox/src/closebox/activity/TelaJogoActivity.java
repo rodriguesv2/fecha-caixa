@@ -789,6 +789,8 @@ public class TelaJogoActivity extends Activity{
 		calcularPontos = true;
 		dado1.setVisibility(View.INVISIBLE);
 		dado2.setVisibility(View.INVISIBLE);
+		dadoLancado1.setVisibility(View.INVISIBLE);
+		dadoLancado2.setVisibility(View.INVISIBLE);
 		levantarPlacaDeJogadaIncompleta();
 	}
 
@@ -865,7 +867,8 @@ public class TelaJogoActivity extends Activity{
 		AlertDialog.Builder dialogo = new AlertDialog.Builder(this);
 
 		dialogo.setTitle("Subtrair");
-		dialogo.setMessage("Você deve subtrair o valor das placas com seus pontos de vida\n\n" +
+		dialogo.setMessage("Agora vamos calcular os seus pontos de vida."+
+				"\nEfetue a subtração para saber quantos pontos você ainda vai ter:\n\n " +
 				controle.getListaPontuacao().get(jogadorAtual)+" - "+controle.getPontosRestantes()+" =");
 
 		final EditText inserirNumero = new EditText(this);
