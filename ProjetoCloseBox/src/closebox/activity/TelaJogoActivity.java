@@ -112,7 +112,7 @@ public class TelaJogoActivity extends Activity{
 	@Override
 	public void onCreate(Bundle savedInstanceState){ // metodo CONSTRUTOR
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.tela_jogo);
+		setContentView(R.layout.tela_jogo_nova);
 		try {
 			controle = new Controle();
 		} catch (Exception e) {
@@ -243,8 +243,8 @@ public class TelaJogoActivity extends Activity{
 		pontos1 = (TextView)findViewById(R.id.pontosText1);
 		pontos2 = (TextView)findViewById(R.id.pontosText2);
 		pontos3 = (TextView)findViewById(R.id.pontosText3);
-		dado1 = (ImageView)findViewById(R.id.imageView1);
-		dado2 = (ImageView)findViewById(R.id.imageView2);
+		dado1 = (ImageView)findViewById(R.id.imageViewDG1);
+		dado2 = (ImageView)findViewById(R.id.imageViewDG2);
 		placa1 = (ImageView)findViewById(R.id.imageViewPlaca_1);
 		placaDown1 = (ImageView)findViewById(R.id.imageViewPD1);
 		placa2 = (ImageView)findViewById(R.id.imageViewPlaca_2);
@@ -265,7 +265,7 @@ public class TelaJogoActivity extends Activity{
 		placaDown9 = (ImageView)findViewById(R.id.imageViewPD9);
 		dadoLancado1 = (ImageView)findViewById(R.id.imageViewDadoLancado1);
 		dadoLancado2 = (ImageView)findViewById(R.id.imageViewDadoLancado2);
-		qualSomaDasPlacas = (TextView)findViewById(R.id.textView1);
+		qualSomaDasPlacas = (TextView)findViewById(R.id.textViewPergunta);
 		campoSomaPlacas = (EditText)findViewById(R.id.campo_pontos_de_vida);
 		okSomaPlacas = (Button)findViewById(R.id.okSomaPlacas);
 		rodadaAtual = (TextView)findViewById(R.id.rodada);
@@ -454,7 +454,7 @@ public class TelaJogoActivity extends Activity{
 		dado.setVisibility(View.INVISIBLE);
 		controle.acaoDado(view);
 
-		if(view.getId() == R.id.imageView1)sortearDado1();
+		if(view.getId() == R.id.imageViewDG1)sortearDado1();
 		else							   sortearDado2();
 	}
 

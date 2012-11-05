@@ -152,7 +152,7 @@ public class JogaDado {
 	 * @param View view
 	 */
 	public void acaoDado(View view){
-		if(view.getId() == R.id.imageView1){
+		if(view.getId() == R.id.imageViewDG1){
 			girar1 = false;
 			dado1Parado = true;
 		}else{

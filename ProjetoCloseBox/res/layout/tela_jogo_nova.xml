@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/background_tj" >
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/linearLayout1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/checkedTextView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="#"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:visibility="invisible"
+                android:textColor="#009900" />
+
+            <TextView
+                android:id="@+id/jogadorText1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="jogador1"
+                android:textColor="#009900"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <TextView
+                android:id="@+id/pontosText1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="pontos1"
+                android:textColor="#009900"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/checkedTextView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="#"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:visibility="invisible" 
+                android:textColor="#990000"/>
+
+            <TextView
+                android:id="@+id/jogadorText2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="jogador2"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="#990000" />
+
+            <TextView
+                android:id="@+id/pontosText2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="pontos2"
+                android:textAppearance="?android:attr/textAppearanceLarge" 
+                android:textColor="#990000"/>
+        </LinearLayout>
+        
+		
+        <LinearLayout
+            android:id="@+id/linearLayout3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/checkedTextView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="#"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:visibility="invisible"
+                android:textColor="#000099" />
+
+            <TextView
+                android:id="@+id/jogadorText3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="jogador3"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="#000099" />
+
+            <TextView
+                android:id="@+id/pontosText3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="pontos3"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="#000099" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout1"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" >
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:text="*"
+                android:visibility="invisible"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:text="*"
+                android:visibility="invisible" />
+
+            <ImageView
+                android:id="@+id/imageViewPlaca_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignRight="@+id/textView1"
+                android:onClick="abaixarPlaca"
+                android:src="@drawable/placa_5" />
+
+            <ImageView
+                android:id="@+id/imageViewPlaca_6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/imageViewPlaca_5"
+                android:onClick="abaixarPlaca"
+                android:src="@drawable/placa_6" />
+
+            <ImageView
+                android:id="@+id/imageViewPlaca_7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/imageViewPlaca_6"
+                android:onClick="abaixarPlaca"
+                android:src="@drawable/placa_7" />
+
+            <ImageView
+                android:id="@+id/imageViewPlaca_8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/imageViewPlaca_7"
+                android:onClick="abaixarPlaca"
+                android:src="@drawable/placa_8" />
+
+            <ImageView
+                android:id="@+id/imageViewPlaca_9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/imageViewPlaca_8"
+                android:onClick="abaixarPlaca"
+                android:src="@drawable/placa_9" />
+
+            <ImageView
+                android:id="@+id/imageViewPlaca_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginRight="10dp"
+                android:layout_toLeftOf="@+id/imageViewPlaca_5"
+                android:onClick="abaixarPlaca"
+                android:src="@drawable/placa_4" />
+
+            <ImageView
+                android:id="@+id/imageViewPlaca_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginRight="10dp"
+                android:layout_toLeftOf="@+id/imageViewPlaca_4"
+                android:onClick="abaixarPlaca"
+                android:src="@drawable/placa_3" />
+
+            <ImageView
+                android:id="@+id/imageViewPlaca_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginRight="10dp"
+                android:layout_toLeftOf="@+id/imageViewPlaca_3"
+                android:onClick="abaixarPlaca"
+                android:src="@drawable/placa_2" />
+
+            <ImageView
+                android:id="@+id/imageViewPlaca_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginRight="10dp"
+                android:layout_toLeftOf="@+id/imageViewPlaca_2"
+                android:onClick="abaixarPlaca"
+                android:tag="1" 
+                android:src="@drawable/placa_1" />
+
+            <ImageView
+                android:id="@+id/imageViewPD5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/imageViewPlaca_4"
+                android:visibility="invisible"
+                android:src="@drawable/placa_down" />
+
+            <ImageView
+                android:id="@+id/imageViewPD6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/imageViewPD5"
+                android:visibility="invisible"
+                android:src="@drawable/placa_down" />
+
+            <ImageView
+                android:id="@+id/imageViewPD7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/imageViewPD6"
+                android:visibility="invisible"
+                android:src="@drawable/placa_down" />
+
+            <ImageView
+                android:id="@+id/imageViewPD8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/imageViewPD7"
+                android:visibility="invisible"
+                android:src="@drawable/placa_down" />
+
+            <ImageView
+                android:id="@+id/imageViewPD9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/imageViewPD8"
+                android:visibility="invisible"
+                android:src="@drawable/placa_down" />
+
+            <ImageView
+                android:id="@+id/imageViewPD4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/imageViewPD5"
+                android:visibility="invisible"
+                android:src="@drawable/placa_down" />
+
+            <ImageView
+                android:id="@+id/imageViewPD3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/imageViewPD4"
+                android:visibility="invisible"
+                android:src="@drawable/placa_down" />
+
+            <ImageView
+                android:id="@+id/imageViewPD2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/imageViewPD3"
+                android:visibility="invisible"
+                android:src="@drawable/placa_down" />
+
+            <ImageView
+                android:id="@+id/imageViewPD1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/imageViewPD2"
+                android:visibility="invisible"
+                android:src="@drawable/placa_down" />
+
+            <ImageView
+                android:id="@+id/imageViewDG1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/textView1"
+                android:layout_toLeftOf="@+id/textView1"
+                android:clickable="true"
+                android:onClick="acaoDado"
+                android:src="@drawable/dado_gira2" />
+
+            <ImageView
+                android:id="@+id/imageViewDG2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/textView1"
+                android:layout_toRightOf="@+id/textView1"
+                android:clickable="true"
+                android:onClick="acaoDado"
+                android:src="@drawable/dado_gira5" />
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:onClick="desistir"
+                android:src="@drawable/bot_desistir" />
+
+            <TextView
+                android:id="@+id/textViewPergunta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/textView2"
+                android:layout_toRightOf="@+id/textView2"
+                android:text="Qual a soma das placas?"
+                android:visibility="invisible"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <EditText
+                android:id="@+id/campo_pontos_de_vida"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/textViewPergunta"
+                android:layout_alignBottom="@+id/textViewPergunta"
+                android:layout_toLeftOf="@+id/imageViewPlaca_8"
+                android:layout_toRightOf="@+id/imageViewPlaca_6"
+                android:inputType="number"
+                android:singleLine="true"
+                android:visibility="invisible" />
+
+            	<requestFocus />
+
+            <Button
+                android:id="@+id/okSomaPlacas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/textView2"
+                android:layout_alignBottom="@+id/textView2"
+                android:layout_alignRight="@+id/imageViewPlaca_8"
+                android:visibility="invisible"
+                android:onClick="validarCalculoDoUsuario"
+                android:text="OK" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignRight="@+id/imageViewPD9"
+                android:layout_below="@+id/imageViewPD8"
+                android:text="Pontos"
+                android:textColor="#990000"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            <TextView
+                android:id="@+id/rodada"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/textView3"
+                android:layout_below="@+id/textView3"
+                android:text="000"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <ImageView
+                android:id="@+id/imageViewDadoLancado2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/textView1"
+                android:layout_toLeftOf="@+id/imageViewPlaca_8"
+                android:src="@drawable/new_dado_face6" />
+
+            <ImageView
+                android:id="@+id/imageViewDadoLancado1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/textView1"
+                android:layout_alignLeft="@+id/imageViewDG1"
+                android:src="@drawable/new_dado_face1" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
