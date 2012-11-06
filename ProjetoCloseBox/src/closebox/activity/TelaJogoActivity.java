@@ -680,7 +680,7 @@ public class TelaJogoActivity extends Activity{
 		if(!controle.isUltimaPlaca())
 			dialogo.setMessage("A soma de "+ placa2 +" e "+ placa1 + " não corresponde á soma dos dados!");
 		else
-			dialogo.setMessage("" + placa1 + " não corresponde á soma dos dados!");
+			dialogo.setMessage("" + placa1 + " não corresponde à soma dos dados!");
 
 		dialogo.setPositiveButton("OK", new OnClickListener() {	
 			@Override
@@ -832,10 +832,10 @@ public class TelaJogoActivity extends Activity{
 		AlertDialog.Builder dialogo = new AlertDialog.Builder(this);
 
 		dialogo.setTitle("Erro");
-		if(e == null) dialogo.setMessage("Calculo não está correto.");
+		if(e == null) dialogo.setMessage("Cálculo não está correto.");
 		else          dialogo.setMessage("O campo está vazio ou preenchido errado.");
 
-		dialogo.setNegativeButton("Ok", null);
+		dialogo.setNegativeButton("OK", null);
 		dialogo.show();
 	}
 
@@ -847,10 +847,10 @@ public class TelaJogoActivity extends Activity{
 		AlertDialog.Builder dialogo = new AlertDialog.Builder(this);
 
 		dialogo.setTitle("Erro");
-		if(e == null) dialogo.setMessage("Calculo não está correto.");
+		if(e == null) dialogo.setMessage("Cálculo não está correto.");
 		else          dialogo.setMessage("O campo está vazio ou preenchido errado.");
 
-		dialogo.setPositiveButton("Ok", new OnClickListener() {
+		dialogo.setPositiveButton("OK", new OnClickListener() {
 
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
@@ -867,8 +867,7 @@ public class TelaJogoActivity extends Activity{
 		AlertDialog.Builder dialogo = new AlertDialog.Builder(this);
 
 		dialogo.setTitle("Subtrair");
-		dialogo.setMessage("Agora vamos calcular os seus pontos de vida."+
-				"\nEfetue a subtração para saber quantos pontos você ainda vai ter:\n\n " +
+		dialogo.setMessage("Você deve subtrair o valor das placas com seus pontos de vida.\n\n" +
 				controle.getListaPontuacao().get(jogadorAtual)+" - "+controle.getPontosRestantes()+" =");
 
 		final EditText inserirNumero = new EditText(this);
