@@ -24,23 +24,4 @@
         android:text="pontos"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/nome4"
-        android:layout_alignParentLeft="true"
-        android:hint="@string/jogador"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/nome4"
-        android:layout_alignBottom="@+id/nome4"
-        android:layout_alignParentLeft="true"
-        android:hint="@string/pontuacao"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
 </RelativeLayout>
