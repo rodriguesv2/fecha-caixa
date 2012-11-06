@@ -128,7 +128,7 @@ public class CreditosActivity extends Activity{
 						public void run() {
 							int rolar = indice;
 							scroll.scrollTo(0, rolar);
-							if(indice < 900){
+							if(indice < 1800){
 								indice += 3;
 							}else{
 								indice = 0;
