@@ -92,7 +92,7 @@ public class MainActivity extends Activity {
 		AlertDialog.Builder dialogo = new AlertDialog.Builder(this);
 		dialogo.setTitle("Aviso!").setMessage("Tem certeza que deseja sair do jogo?");
 		
-		dialogo.setPositiveButton("sim", new DialogInterface.OnClickListener() {
+		dialogo.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
 			
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
