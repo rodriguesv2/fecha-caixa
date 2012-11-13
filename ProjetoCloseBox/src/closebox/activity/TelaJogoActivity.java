@@ -744,7 +744,7 @@ public class TelaJogoActivity extends Activity{
 
 		intentOut = new Intent(this, ControllerActivity.class);
 
-		intentOut.putExtra("botao", "calcularPontosDeVida");
+		intentOut.putExtra("acao", "calcularPontosDeVida");
 		intentOut.putExtra("numeroDeJogadores", controle.getQuantidadejogador());//quantidade de jogadores (int)
 		intentOut.putStringArrayListExtra("arrayJogadores", controle.getListaDeJogadores());//lista de nomes dos jogadores (String)
 		intentOut.putIntegerArrayListExtra("pontuacaoJogadores", controle.getListaPontuacao());//lista de pontuacao (int)
@@ -752,6 +752,7 @@ public class TelaJogoActivity extends Activity{
 		intentOut.putExtra("pontosRodada", controle.getPontosRestantes());// a soma das placas nao abaixadas (int)
 		listaRodadas.set(jogadorAtual, controle.getPontosRanking());
 		intentOut.putIntegerArrayListExtra("listaRodadas", listaRodadas);//lista das rodadas (int)
+		intentOut.setFlags(10);
 		super.finish();
 		startActivity(intentOut);
 	}

@@ -37,7 +37,7 @@ public class ScoreActivity extends Activity {
 
 	private Intent intentIn; //intent responsável por receber as informaçoes necessárias 
 	private Intent intentOut; //intent responsável por enviar as informaçoes necessárias 
-	private String botao = ""; // Srting usada para comparar o botão que chamou essa Activity
+	private String acao = ""; // Srting usada para comparar o botão que chamou essa Activity
 	private int numJogadores; // quantidade de jogadores
 	private int jogAtual, pontoJog; // o indice do jogador atual e a sua pontuação
 	private String nomeJog = ""; //o nome do jogador
@@ -110,21 +110,21 @@ public class ScoreActivity extends Activity {
 	 * De acordo com a origem grava, solicita nova rodada ou mostra a view "GAME OVER"
 	 */
 	private void defineAcaoOrigem(){
-		botao = intentIn.getStringExtra("botao");
+		acao = intentIn.getStringExtra("acao");
 		
-		if (botao.equals("gravarPontuacao")) {
+		if (acao.equals("gravarPontuacao")) {
 			numJogadores = intentIn.getIntExtra("numeroDeJogadores", 0);//a quantidade dos jogadores
 			jogAtual = intentIn.getIntExtra("jogadorAtual", 0);//indice do jogador atual na lista
 			pontoJog = intentIn.getIntegerArrayListExtra("listaRodadas").get(jogAtual); //a pontuacao do jogador atual
 			nomeJog = intentIn.getStringArrayListExtra("arrayJogadores").get(jogAtual); // o nome do jogador atual
 			gerenciarTabela(nomeJog, pontoJog);//grava os dados se obedecerem os criterios para tal
 			voltaParaJogo();//inicia uma nova rodada
-		}else if(botao.equals("lista")){
+		}else if(acao.equals("lista")){
 			populaTabela();//mostra a lista Score
 		
 		}else {
 			intentOut = new Intent(this, ControllerActivity.class);
-			intentOut.putExtra("botao", "gameOver");
+			intentOut.putExtra("acao", "gameOver");
 			super.finish();
 			startActivity(intentOut);
 		}
@@ -138,7 +138,8 @@ public class ScoreActivity extends Activity {
 		numJogadores --; //Atualiza a quantidade de jogadores
 		if(numJogadores<1){//Caso não haja mais Jogadores: GAME OVER
 	    	intentOut = new Intent(this, ControllerActivity.class); //envia os dados ao controller
-	    	intentOut.putExtra("botao", "gameOver");// o nome do botao, na verdade uma referencia a ser tratada no controller
+	    	intentOut.putExtra("acao", "gameOver");// o nome do botao, na verdade uma referencia a ser tratada no controller
+	    	intentOut.setFlags(11);
 	    	super.finish();
 			startActivity(intentOut);
 		}else{
@@ -152,12 +153,13 @@ public class ScoreActivity extends Activity {
 				jogAtual = 0;
 			}
 			intentOut = new Intent(this, ControllerActivity.class); //envia os dados ao controller
-			intentOut.putExtra("botao", "novaRodada"); // o nome do botao, na verdade uma referencia a ser tratada no controller
+			intentOut.putExtra("acao", "novaRodada"); // o nome do botao, na verdade uma referencia a ser tratada no controller
 			intentOut.putExtra("numeroDeJogadores", numJogadores);//quantidade de jogadores
 			intentOut.putStringArrayListExtra("arrayJogadores", jogadores);//lista de jogadores
 			intentOut.putIntegerArrayListExtra("pontuacaoJogadores", listaPontuacao);//lista de pontuacao
 			intentOut.putExtra("jogadorAtual", jogAtual);// o jogador atual
 			intentOut.putIntegerArrayListExtra("listaRodadas", rodadas);
+			intentOut.setFlags(12);
 			super.finish();
 			startActivity(intentOut);
 		}

@@ -103,6 +103,7 @@ public class NumeroDeJogadoresActivity extends Activity{
 		Intent intent = new Intent(this, ControllerActivity.class); // faz a chamada da Activity ControllerActivity.
 		intent.putExtra("numeroDeJogadores", numeroDeJogadores); // envia a quantidade selecionada pelo Jogador
 		intent.putExtra("botao", "botaoNumeroDeJogadores"); // envia uma String "botaoNumeroDeJogadores", com chave "botao"
+		intent.setFlags(5);
 		startActivity(intent);
 		finish();
 	}
