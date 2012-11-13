@@ -111,6 +111,7 @@ public class MainActivity extends Activity {
     	soundManager.playSound(SoundManager.BOTAO_NAVEGACAO);
     	intent = new Intent(MainActivity.this, ControllerActivity.class); //determina a nova Activity
     	intent.putExtra("botao", "inicio"); // o nome do botao, na verdade uma referencia a ser tratada no controller
+    	intent.setFlags(1);
     	startActivity(intent); // inicializa a nova Activity, envia os dados ao controller
     }
     
@@ -118,6 +119,7 @@ public class MainActivity extends Activity {
     	soundManager.playSound(SoundManager.BOTAO_NAVEGACAO);
     	intent = new Intent(MainActivity.this, ControllerActivity.class); //determina a nova Activity
     	intent.putExtra("botao", "options"); // o nome do botao, na verdade uma referencia a ser tratada no controller
+    	intent.setFlags(2);
 		startActivity(intent); // inicializa a nova Activity, envia os dados ao controller
 		
     }
@@ -126,6 +128,7 @@ public class MainActivity extends Activity {
     	soundManager.playSound(SoundManager.BOTAO_NAVEGACAO);
     	intent = new Intent(MainActivity.this, ControllerActivity.class); //determina a nova Activity
     	intent.putExtra("botao", "score"); // o nome do botao, na verdade uma referencia a ser tratada no controller
+    	intent.setFlags(3);
 		startActivity(intent); // inicializa a nova Activity, envia os dados ao controller
 		
     }
@@ -134,6 +137,7 @@ public class MainActivity extends Activity {
     	soundManager.playSound(SoundManager.BOTAO_NAVEGACAO);
     	intent = new Intent(MainActivity.this, ControllerActivity.class); //determina a nova Activity
     	intent.putExtra("botao", "sobre"); // o nome do botao, na verdade uma referencia a ser tratada no controller
+    	intent.setFlags(4);
     	startActivity(intent); // inicializa a nova Activity, envia os dados ao controller
     }
 }

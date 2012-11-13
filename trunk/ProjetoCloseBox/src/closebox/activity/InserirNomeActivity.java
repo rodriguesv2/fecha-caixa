@@ -135,7 +135,7 @@ public class InserirNomeActivity extends Activity {
 			intentOut.putExtra("jogadorAtual", 0);
 			intentOut.putIntegerArrayListExtra("pontuacaoJogadores",pontosJogador);
 			intentOut.putIntegerArrayListExtra("listaRodadas", listaRodadas);
-
+			intentOut.setFlags(6);
 			finish();
 			// Vai para nova activity
 			startActivity(intentOut);
